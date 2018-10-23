@@ -1,4 +1,6 @@
-package homework.hw5.transport;
+package homework.hw5.transport.ground;
+
+import homework.hw5.transport.Transport;
 
 public class GroundTransport extends Transport {
     private int wheelsNumber;

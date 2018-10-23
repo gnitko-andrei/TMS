@@ -1,4 +1,4 @@
-package homework.hw5.transport;
+package homework.hw5.transport.ground;
 
 public class FreightGroundTransport extends GroundTransport {
     private int loadCapacity;
