@@ -17,8 +17,8 @@ public class PassengerGroundTransport extends GroundTransport {
     }
 
 
-    public void description() {
-        super.description();
+    public void printDescription() {
+        super.printDescription();
         System.out.println("Это пассажирский наземный транспорт");
         System.out.println("Тип кузова " + this.bodyType);
         System.out.println("Количество пассажиров " + this.passengersNumber);

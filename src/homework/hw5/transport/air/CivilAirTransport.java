@@ -16,8 +16,8 @@ public class CivilAirTransport extends AirTransport {
         this.isBusinessClass = isBusinessClass;
     }
 
-    public void description() {
-        super.description();
+    public void printDescription() {
+        super.printDescription();
         System.out.println("Это гражданский воздушный транспорт");
         System.out.println("Максимальное количество пассажиров " + passengersMaxNumber);
         if (this.isBusinessClass) {
@@ -27,7 +27,7 @@ public class CivilAirTransport extends AirTransport {
         }
     }
 
-    public void canLoad(int passengersNumber) {
+    public void printLoadMessage(int passengersNumber) {
         if (passengersNumber <= this.getPassengersMaxNumber()) {
             System.out.println("Посадка пассажиров проведена успешно");
         } else {

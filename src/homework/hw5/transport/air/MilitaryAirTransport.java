@@ -16,8 +16,8 @@ public class MilitaryAirTransport extends AirTransport {
         this.missilesNumber = missilesNumber;
     }
 
-    public void description() {
-        super.description();
+    public void printDescription() {
+        super.printDescription();
         System.out.println("Это военный воздушный транспорт");
         if (this.isEjectionSystem) {
             System.out.println("Система катапультирования есть");

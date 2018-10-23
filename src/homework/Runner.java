@@ -9,30 +9,30 @@ import java.util.Scanner;
 public class Runner {
 
     public static void main(String[] args) {
-        Runner run = new Runner();
-        run.run();
+        Runner runner = new Runner();
+        runner.runHW();
     }
 
-    private void run() {
-        welcomeMessage();
+    private void runHW() {
+        printWelcomeMessage();
         int[] numbers = readHWNumbers();
-        boolean checkNumbers = checkNumbers(numbers, 5);
-        if (checkNumbers) {
+        boolean isValid = checkNumbers(numbers, 5);
+        if (isValid) {
             for (int i = 0; i < numbers.length; i++) {
                 switch (numbers[i]) {
                     case 1: {
                         HW1 hw = new HW1();
-                        hw.run();
+                        hw.runTask();
                         break;
                     }
                     case 2: {
                         HW2 hw = new HW2();
-                        hw.run();
+                        hw.runTask();
                         break;
                     }
                     case 3: {
                         HW3 hw = new HW3();
-                        hw.run();
+                        hw.runTask();
                         break;
                     }
                     case 4: {
@@ -48,7 +48,7 @@ public class Runner {
 
     }
 
-    private void welcomeMessage() {
+    private void printWelcomeMessage() {
         System.out.println("Введите номер занятия (можно несколько в формате 1-4 или 1 2 3...)");
         System.out.println("1.Intro, 2.Control flows, 3.Arrays, 4.Class, 5. Interface");
         System.out.println("для завершения ввода напишите exit");
@@ -56,35 +56,35 @@ public class Runner {
 
     public int[] readHWNumbers() {
         Scanner sc = new Scanner(System.in, "UTF-8");
-        String s = "";
+        String numbersString = "";
         while (sc.hasNext()) {
             String nextValue = sc.next();
             if (nextValue.equalsIgnoreCase("exit")) {
                 break;
             }
-            s += nextValue + " ";
+            numbersString += nextValue + " ";
         }
-        int[] numbers = findNumbersFromString(s);
+        int[] numbers = findNumbersFromString(numbersString);
         return numbers;
 
     }
 
-    private int[] findNumbersFromString(String s) {
-        String[] stringNumbers;
+    private int[] findNumbersFromString(String numbersString) {
+        String[] stringNumbersArray;
         int[] numbers;
-        if (s.contains("-")) {
-            stringNumbers = s.split("[-\\s+]");
-            int first = Integer.parseInt(stringNumbers[0]);
-            int last = Integer.parseInt(stringNumbers[1]);
+        if (numbersString.contains("-")) {
+            stringNumbersArray = numbersString.split("[-\\s+]");
+            int first = Integer.parseInt(stringNumbersArray[0]);
+            int last = Integer.parseInt(stringNumbersArray[1]);
             numbers = new int[last - first + 1];
             for (int i = 0; i < numbers.length; i++) {
                 numbers[i] = first + i;
             }
         } else {
-            stringNumbers = s.split("\\s+");
-            numbers = new int[stringNumbers.length];
-            for (int i = 0; i < stringNumbers.length; i++) {
-                numbers[i] = Integer.parseInt(stringNumbers[i]);
+            stringNumbersArray = numbersString.split("\\s+");
+            numbers = new int[stringNumbersArray.length];
+            for (int i = 0; i < stringNumbersArray.length; i++) {
+                numbers[i] = Integer.parseInt(stringNumbersArray[i]);
             }
         }
         return numbers;

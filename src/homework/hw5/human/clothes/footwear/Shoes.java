@@ -1,10 +1,7 @@
 package homework.hw5.human.clothes.footwear;
 
 public class Shoes implements Footwear {
-    boolean isDressed;
-
-    public Shoes() {
-    }
+    private boolean isDressed;
 
     public void putOnShoes() {
         if (!this.isDressed) {

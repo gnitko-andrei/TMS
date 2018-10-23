@@ -5,6 +5,6 @@ import homework.hw5.transport.air.MilitaryAirTransport;
 public class Test {
     public static void main(String[] args) {
         Transport transport = new MilitaryAirTransport();
-        transport.description();
+        transport.printDescription();
     }
 }

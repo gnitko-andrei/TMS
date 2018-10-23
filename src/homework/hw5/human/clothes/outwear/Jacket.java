@@ -1,10 +1,7 @@
 package homework.hw5.human.clothes.outwear;
 
 public class Jacket implements Outwear {
-    boolean isDressed;
-
-    public Jacket() {
-    }
+    private boolean isDressed;
 
     public void putOnJacket() {
         if (!this.isDressed) {

@@ -17,8 +17,8 @@ public class AirTransport extends Transport {
         this.minRunwayLength = minRunwayLength;
     }
 
-    public void description() {
-        super.description();
+    public void printDescription() {
+        super.printDescription();
         System.out.println("Это вощдушный транспорт");
         System.out.printf("Размах крыльев %d (м)", this.wingspan);
         System.out.printf("Минимальная длинна взлётно-посадочной полосы %d (м)", this.minRunwayLength);

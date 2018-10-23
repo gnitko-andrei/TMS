@@ -24,7 +24,7 @@ public class Transport {
         return capacity * 0.74;
     }
 
-    public void description() {
+    public void printDescription() {
         System.out.println("Мощность(в лошадиных силах) " + capacity);
         System.out.printf("Мощность %f (кВт)\n", capacityToKV(capacity));
         System.out.printf("Максимальная скорость %d (км/ч)\n", maxSpeed);

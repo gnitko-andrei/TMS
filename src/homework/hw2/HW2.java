@@ -4,15 +4,12 @@ import functions.ArrayFunctions;
 import homework.Runner;
 
 public class HW2 {
-    public HW2() {
-    }
-
-    public void run() {
+    public void runTask() {
         Runner runner = new Runner();
-        welcomeMessage();
+        printWelcomeMessage();
         int[] numbers = runner.readHWNumbers();
-        boolean checkNumbers = runner.checkNumbers(numbers, 14);
-        if (checkNumbers) {
+        boolean isValid = runner.checkNumbers(numbers, 14);
+        if (isValid) {
             for (int i = 0; i < numbers.length; i++) {
                 System.out.println("Task №" + numbers[i]);
                 switch (numbers[i]) {
@@ -47,7 +44,7 @@ public class HW2 {
 
     }
 
-    private void welcomeMessage() {
+    private void printWelcomeMessage() {
         System.out.println("Задания занятия №2 Control flows");
         System.out.println("Введите номер задания от 1 до 6 (можно несколько в формате 1-14 или 1 2 3...)");
         System.out.println("для завершения ввода напишите exit");

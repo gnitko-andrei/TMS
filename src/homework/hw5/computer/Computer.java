@@ -7,42 +7,42 @@ public class Computer {
     private String processor;
     private int ram;
     private int rom;
-    private int resours;
+    private int resource;
     private boolean isBurned = false;
     private boolean isOn = false;
-    Scanner scanner = new Scanner(System.in);;
-    Random r = new Random();
+    private Scanner sc = new Scanner(System.in);
+    private Random r = new Random();
 
     public Computer() {
         this.processor = "Intel";
         this.ram = 16;
         this.rom = 1000;
-        this.resours = 3000;
+        this.resource = 3000;
     }
 
-    public Computer(String processor, int ram, int rom, int resours) {
+    public Computer(String processor, int ram, int rom, int resource) {
         this.processor = processor;
         this.ram = ram;
         this.rom = rom;
-        this.resours = resours;
+        this.resource = resource;
     }
 
-    public Computer(int resours) {
+    Computer(int resource) {
         this.processor = "Intel";
         this.ram = 16;
         this.rom = 1000;
-        this.resours = resours;
+        this.resource = resource;
     }
 
-    public void output() {
-        System.out.printf("процессор %s, оперативка %d, жесткий диск %d, ресурс полных циклов работы (включений/выключений) %d\n", this.processor, this.ram, this.rom, this.resours);
+    void output() {
+        System.out.printf("процессор %s, оперативка %d, жесткий диск %d, ресурс полных циклов работы (включений/выключений) %d\n", this.processor, this.ram, this.rom, this.resource);
     }
 
-    public void on() {
+    void on() {
         if (!this.isBurned) {
             if (!this.isOn) {
                 System.out.println("Введите 1 или 0");
-                String s = scanner.next();
+                String s = sc.next();
                 if (Integer.parseInt(s) == this.r.nextInt(2)) {
                     System.out.println("Компьютер включился");
                     this.isOn = true;
@@ -59,14 +59,14 @@ public class Computer {
 
     }
 
-    public void off() {
+    void off() {
         if (this.isOn) {
             System.out.println("Введите 1 или 0");
-            String s = this.scanner.next();
+            String s = this.sc.next();
             if (Integer.parseInt(s) == this.r.nextInt(2)) {
                 System.out.println("Компьютер выключился");
                 this.isOn = false;
-                --this.resours;
+                --this.resource;
             } else {
                 this.isBurned = true;
                 System.out.println("Компьютер сгорел");
@@ -75,7 +75,7 @@ public class Computer {
             System.out.println("Компьютер не включен");
         }
 
-        if (this.resours <= 0) {
+        if (this.resource <= 0) {
             this.isBurned = true;
             System.out.println("Компьютер сгорел (ресурс полных циклов работы кончился)");
         }

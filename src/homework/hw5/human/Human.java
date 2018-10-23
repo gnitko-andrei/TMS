@@ -10,44 +10,45 @@ import homework.hw5.human.clothes.pants.Jeans;
 import homework.hw5.human.clothes.pants.Pants;
 import homework.hw5.human.clothes.pants.Trousers;
 
-public class Human {
+class Human {
     private String name;
     private Outwear outwear;
     private Pants pants;
     private Footwear footwear;
 
-    public Human(String name) {
+    Human(String name) {
         this.name = name;
         chooseCasualStyle();
     }
 
-    public Human(String name, String style) {
+    Human(String name, String style) {
         this.name = name;
         if (style.equalsIgnoreCase("casual")) {
             chooseCasualStyle();
-        } else if(style.equalsIgnoreCase("official"));
-
+        } else if (style.equalsIgnoreCase("official")) {
+            chooseOfficialStyle();
+        }
     }
 
-    public void chooseCasualStyle() {
+    private void chooseCasualStyle() {
         this.outwear = new Jacket();
         this.pants = new Jeans();
         this.footwear = new Sneakers();
     }
 
-    public void chooseOfficialStyle() {
+    private void chooseOfficialStyle() {
         this.outwear = new Coat();
         this.pants = new Trousers();
         this.footwear = new Shoes();
     }
 
-    public void dressed() {
+    void dress() {
         this.outwear.putOnJacket();
         this.pants.putOnPants();
         this.footwear.putOnShoes();
     }
 
-    public void undressed() {
+    void undress() {
         this.outwear.takeOffJacket();
         this.pants.takeOffPants();
         this.footwear.takeOffShoes();

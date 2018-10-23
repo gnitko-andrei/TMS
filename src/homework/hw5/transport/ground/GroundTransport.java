@@ -19,7 +19,7 @@ public class GroundTransport extends Transport {
     }
 
     public void description() {
-        super.description();
+        super.printDescription();
         System.out.println("Это наземный транспорт");
         System.out.println("Количество колёс " + wheelsNumber);
         System.out.printf("Расход топлива %d (л/100км)\n", fuelConsumption);

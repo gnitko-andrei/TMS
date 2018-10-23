@@ -6,14 +6,16 @@ public class Test {
 
     public static void main(String[] args) {
         Human human = new Human("Andrei", "casual");
-        human.dressed();
-        human.dressed();
-        human.undressed();
-        human.undressed();
+        human.dress();
+        human.dress();
+        human.undress();
+        human.undress();
+        Human human1 = new Human("Igor");
+        human1.dress();
         Human human2 = new Human("Саша", "official");
-        human2.dressed();
-        human2.dressed();
-        human2.undressed();
-        human2.undressed();
+        human2.dress();
+        human2.dress();
+        human2.undress();
+        human2.undress();
     }
 }
