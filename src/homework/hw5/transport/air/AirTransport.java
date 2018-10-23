@@ -1,4 +1,6 @@
-package homework.hw5.transport;
+package homework.hw5.transport.air;
+
+import homework.hw5.transport.Transport;
 
 public class AirTransport extends Transport {
     private int wingspan; //размах крыльев

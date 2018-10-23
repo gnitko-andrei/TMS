@@ -1,4 +1,6 @@
-package homework.hw5.transport;
+package homework.hw5.transport.air;
+
+import homework.hw5.transport.air.AirTransport;
 
 public class CivilAirTransport extends AirTransport {
     private int passengersMaxNumber;
