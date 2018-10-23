@@ -1,6 +1,4 @@
-package HomeWork.HW5.Transport;
-
-import java.io.PrintStream;
+package homework.hw5.transport;
 
 public class Transport {
     private int capacity;

@@ -1,4 +1,4 @@
-package HomeWork.HW5.Computer;
+package homework.hw5.computer;
 
 public class Test {
     public Test() {

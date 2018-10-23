@@ -1,7 +1,6 @@
-package ClassWork.CW5.static_example;
+package classwork.cw5.static_example;
 
-import ClassWork.CW5.static_example.Car.Engine;
-import ClassWork.CW5.static_example.Car.Wheel;
+import classwork.cw5.static_example.Car.Wheel;
 
 import java.util.Objects;
 

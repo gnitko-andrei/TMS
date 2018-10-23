@@ -1,4 +1,4 @@
-package ClassWork.CW5;
+package classwork.cw5;
 
 public class AudioPlayer implements Player, Player2 {
     public AudioPlayer() {

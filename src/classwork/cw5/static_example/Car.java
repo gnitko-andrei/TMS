@@ -1,4 +1,4 @@
-package ClassWork.CW5.static_example;
+package classwork.cw5.static_example;
 
 public class Car {
     static String ID = "";

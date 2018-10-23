@@ -1,4 +1,4 @@
-package ClassWork.CW5.abstract_;
+package classwork.cw5.abstract_;
 
 public abstract class AbstractTV {
     public AbstractTV() {

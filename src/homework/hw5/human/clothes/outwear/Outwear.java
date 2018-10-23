@@ -1,4 +1,4 @@
-package HomeWork.HW5.Human.Clothes.Outwear;
+package homework.hw5.human.clothes.outwear;
 
 public interface Outwear {
     void putOnJacket();

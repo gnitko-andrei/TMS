@@ -1,4 +1,4 @@
-package HomeWork.HW5.Human.Clothes.Pants;
+package homework.hw5.human.clothes.pants;
 
 public class Trousers implements Pants {
     boolean isDressed;

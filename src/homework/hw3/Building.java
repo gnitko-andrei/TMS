@@ -1,4 +1,4 @@
-package HomeWork.HW3;
+package homework.hw3;
 
 public class Building {
     private int floors;

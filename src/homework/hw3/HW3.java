@@ -1,12 +1,10 @@
-package HomeWork.HW3;
+package homework.hw3;
 
-import Functions.ArrayFunctions;
-import Functions.Converter;
-import HomeWork.Runner;
+import functions.ArrayFunctions;
+import functions.Converter;
+import homework.Runner;
 
-import java.io.PrintStream;
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class HW3 {
     public void run() {
@@ -27,7 +25,7 @@ public class HW3 {
                         break;
                     }
                     case 3: {
-                        System.out.println("Задание №3 выполняется в классе Homework.HW3.Task3\n" +
+                        System.out.println("Задание №3 выполняется в классе Homework.hw3.Task3\n" +
                                 " и нуждается в задании необходимых параметров через program arguments");
                         break;
                     }
@@ -52,7 +50,7 @@ public class HW3 {
                         break;
                     }
                     case 9: {
-                        System.out.println("Задание №9 выполняется в классе Homework.HW3.Task9\n" +
+                        System.out.println("Задание №9 выполняется в классе Homework.hw3.Task9\n" +
                                 " и нуждается в задании необходимых параметров через program arguments");
                         break;
                     }

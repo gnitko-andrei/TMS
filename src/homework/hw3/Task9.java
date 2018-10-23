@@ -1,6 +1,6 @@
-package HomeWork.HW3;
+package homework.hw3;
 
-import Functions.ArrayFunctions;
+import functions.ArrayFunctions;
 
 /**
  * Task 9

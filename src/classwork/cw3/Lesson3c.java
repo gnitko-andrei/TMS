@@ -1,4 +1,4 @@
-package ClassWork.CW3;
+package classwork.cw3;
 
 public class Lesson3c {
     public Lesson3c() {

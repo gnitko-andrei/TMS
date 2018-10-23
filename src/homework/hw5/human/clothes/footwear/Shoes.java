@@ -1,4 +1,4 @@
-package HomeWork.HW5.Human.Clothes.Footwear;
+package homework.hw5.human.clothes.footwear;
 
 public class Shoes implements Footwear {
     boolean isDressed;

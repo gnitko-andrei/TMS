@@ -1,14 +1,14 @@
-package HomeWork.HW5.Human;
+package homework.hw5.human;
 
-import HomeWork.HW5.Human.Clothes.Footwear.Footwear;
-import HomeWork.HW5.Human.Clothes.Footwear.Shoes;
-import HomeWork.HW5.Human.Clothes.Footwear.Sneakers;
-import HomeWork.HW5.Human.Clothes.Outwear.Coat;
-import HomeWork.HW5.Human.Clothes.Outwear.Jacket;
-import HomeWork.HW5.Human.Clothes.Outwear.Outwear;
-import HomeWork.HW5.Human.Clothes.Pants.Jeans;
-import HomeWork.HW5.Human.Clothes.Pants.Pants;
-import HomeWork.HW5.Human.Clothes.Pants.Trousers;
+import homework.hw5.human.clothes.footwear.Footwear;
+import homework.hw5.human.clothes.footwear.Shoes;
+import homework.hw5.human.clothes.footwear.Sneakers;
+import homework.hw5.human.clothes.outwear.Coat;
+import homework.hw5.human.clothes.outwear.Jacket;
+import homework.hw5.human.clothes.outwear.Outwear;
+import homework.hw5.human.clothes.pants.Jeans;
+import homework.hw5.human.clothes.pants.Pants;
+import homework.hw5.human.clothes.pants.Trousers;
 
 public class Human {
     private String name;

@@ -1,4 +1,4 @@
-package ClassWork.CW6;
+package classwork.cw6;
 
 import java.util.Arrays;
 

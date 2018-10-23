@@ -1,4 +1,4 @@
-package HomeWork.HW5.Computer;
+package homework.hw5.computer;
 
 import java.util.Random;
 import java.util.Scanner;

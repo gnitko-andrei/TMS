@@ -1,4 +1,4 @@
-package ClassWork.CW5;
+package classwork.cw5;
 
 public class VideoPlayer implements Player {
     public VideoPlayer() {

@@ -1,4 +1,4 @@
-package HomeWork.HW5.Human;
+package homework.hw5.human;
 
 public class Test {
     public Test() {

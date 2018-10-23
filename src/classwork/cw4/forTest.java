@@ -1,4 +1,4 @@
-package ClassWork.CW4;
+package classwork.cw4;
 
 import java.util.Scanner;
 

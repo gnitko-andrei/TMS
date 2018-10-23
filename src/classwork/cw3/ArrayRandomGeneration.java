@@ -1,4 +1,4 @@
-package ClassWork.CW3;
+package classwork.cw3;
 
 import java.util.Arrays;
 import java.util.Random;
