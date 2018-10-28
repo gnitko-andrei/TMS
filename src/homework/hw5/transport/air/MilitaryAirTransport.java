@@ -7,13 +7,12 @@ public class MilitaryAirTransport extends AirTransport {
     private int missilesNumber;
 
     public MilitaryAirTransport() {
-        this.isEjectionSystem = true;
-        this.missilesNumber = 10;
+        this(true, 10);
     }
 
     public MilitaryAirTransport(boolean isEjectionSystem, int missilesNumber) {
-        this.isEjectionSystem = isEjectionSystem;
-        this.missilesNumber = missilesNumber;
+        setEjectionSystem(isEjectionSystem);
+        setMissilesNumber(missilesNumber);
     }
 
     public void printDescription() {
@@ -54,6 +53,9 @@ public class MilitaryAirTransport extends AirTransport {
     }
 
     public void setMissilesNumber(int missilesNumber) {
+        if(missilesNumber < 0) {
+            throw new IllegalArgumentException("Количество ракет не может быть отрицательным");
+        }
         this.missilesNumber = missilesNumber;
     }
 

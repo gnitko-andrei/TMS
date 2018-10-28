@@ -7,17 +7,14 @@ public class Transport {
     private String brand;
 
     public Transport() {
-        this.capacity = 150;
-        this.maxSpeed = 230;
-        this.weight = 1600;
-        this.brand = "Volkswagen";
+        this(150, 230, 1600,"Volkswagen");
     }
 
     public Transport(int capacity, int maxSpeed, int weight, String brand) {
-        this.capacity = capacity;
-        this.maxSpeed = maxSpeed;
-        this.weight = weight;
-        this.brand = brand;
+        setCapacity(capacity);
+        setMaxSpeed(maxSpeed);
+        setWeight(weight);
+        setBrand(brand);
     }
 
     private double capacityToKV(int capacity) {
@@ -37,6 +34,9 @@ public class Transport {
     }
 
     public void setCapacity(int capacity) {
+        if(capacity <= 0) {
+            throw new java.lang.IllegalArgumentException("Мощность должна быть больше 0");
+        }
         this.capacity = capacity;
     }
 
@@ -45,6 +45,9 @@ public class Transport {
     }
 
     public void setMaxSpeed(int maxSpeed) {
+        if(maxSpeed <= 0) {
+            throw new java.lang.IllegalArgumentException("Максимальная скорость должна быть больше 0");
+        }
         this.maxSpeed = maxSpeed;
     }
 
@@ -53,6 +56,9 @@ public class Transport {
     }
 
     public void setWeight(int weight) {
+        if(weight <= 0) {
+            throw new java.lang.IllegalArgumentException("Вес должен быть больше 0");
+        }
         this.weight = weight;
     }
 
@@ -61,6 +67,9 @@ public class Transport {
     }
 
     public void setBrand(String brand) {
+        if(brand.equals("")) {
+            throw new java.lang.IllegalArgumentException("Марка введёна неверно");
+        }
         this.brand = brand;
     }
 }

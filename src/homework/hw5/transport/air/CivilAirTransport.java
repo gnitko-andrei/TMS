@@ -7,13 +7,12 @@ public class CivilAirTransport extends AirTransport {
     private boolean isBusinessClass;
 
     public CivilAirTransport() {
-        this.passengersMaxNumber = 150;
-        this.isBusinessClass = true;
+        this(100, true);
     }
 
     public CivilAirTransport(int passengersMaxNumber, boolean isBusinessClass) {
-        this.passengersMaxNumber = passengersMaxNumber;
-        this.isBusinessClass = isBusinessClass;
+        setPassengersMaxNumber(passengersMaxNumber);
+        setBusinessClass(isBusinessClass);
     }
 
     public void printDescription() {
@@ -28,7 +27,12 @@ public class CivilAirTransport extends AirTransport {
     }
 
     public void printLoadMessage(int passengersNumber) {
-        if (passengersNumber <= this.getPassengersMaxNumber()) {
+        if(passengersNumber < 0) {
+            throw new IllegalArgumentException("Число пассажиров не может быть отрицательным");
+        }
+        if (passengersNumber == 0) {
+            System.out.println("Самолёт пустым не полетит");
+        } else if (passengersNumber <= this.getPassengersMaxNumber()) {
             System.out.println("Посадка пассажиров проведена успешно");
         } else {
             System.out.println("Вам нужен самолёт побольше");
@@ -41,6 +45,9 @@ public class CivilAirTransport extends AirTransport {
     }
 
     public void setPassengersMaxNumber(int passengersMaxNumber) {
+        if(passengersMaxNumber <= 0) {
+            throw new IllegalArgumentException("Максимальное исло пассажиров должно быть больше 0");
+        }
         this.passengersMaxNumber = passengersMaxNumber;
     }
 

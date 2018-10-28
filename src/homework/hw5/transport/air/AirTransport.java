@@ -8,13 +8,11 @@ public class AirTransport extends Transport {
 
     public AirTransport() {
         super(100000, 900, 300000, "Boeing");
-        this.wingspan = 30;
-        this.minRunwayLength = 4000;
     }
 
     public AirTransport(int wingspan, int minRunwayLength) {
-        this.wingspan = wingspan;
-        this.minRunwayLength = minRunwayLength;
+        setWingspan(wingspan);
+        setMinRunwayLength(minRunwayLength);
     }
 
     public void printDescription() {
@@ -29,6 +27,20 @@ public class AirTransport extends Transport {
     }
 
     public void setWingspan(int wingspan) {
+        if (wingspan <= 0) {
+            throw new IllegalArgumentException("Размах крытьев должен быть больше 0");
+        }
         this.wingspan = wingspan;
+    }
+
+    public int getMinRunwayLength() {
+        return minRunwayLength;
+    }
+
+    public void setMinRunwayLength(int minRunwayLength) {
+        if(minRunwayLength <= 0) {
+            throw new IllegalArgumentException("Минимальная длинна взлётной полосы должна быть больше 0");
+        }
+        this.minRunwayLength = minRunwayLength;
     }
 }

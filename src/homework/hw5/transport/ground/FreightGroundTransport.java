@@ -4,22 +4,22 @@ public class FreightGroundTransport extends GroundTransport {
     private int loadCapacity;
 
     public FreightGroundTransport() {
-        super();
-        this.loadCapacity = 10000;
+        this(1000);
     }
 
     public FreightGroundTransport(int loadCapacity) {
         super();
-        this.loadCapacity = loadCapacity;
+        setLoadCapacity(loadCapacity);
     }
 
     public void printLoadMessge(int weight) {
-        if (weight <= this.getLoadCapacity()) {
+        if (weight <= 0) {
+            throw new IllegalArgumentException("Вес должен быть больше 0");
+        } else if (weight <= this.getLoadCapacity()) {
             System.out.println("Грузовик загружен");
         } else {
             System.out.println("Вам нужен грузовик побольше");
         }
-
     }
 
     public void printDescription() {
@@ -33,6 +33,9 @@ public class FreightGroundTransport extends GroundTransport {
     }
 
     public void setLoadCapacity(int loadCapacity) {
+        if (loadCapacity <= 0) {
+            throw new IllegalArgumentException("Грузоподъёмность должна быть больше 0");
+        }
         this.loadCapacity = loadCapacity;
     }
 }

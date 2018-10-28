@@ -5,15 +5,13 @@ public class PassengerGroundTransport extends GroundTransport {
     private int passengersNumber;
 
     public PassengerGroundTransport() {
-        super();
-        this.bodyType = "Sedan";
-        this.passengersNumber = 4;
+        this("Sedan", 4);
     }
 
     public PassengerGroundTransport(String bodyType, int passengersNumber) {
         super();
-        this.bodyType = bodyType;
-        this.passengersNumber = passengersNumber;
+        setBodyType(bodyType);
+        setPassengersNumber(passengersNumber);
     }
 
 
@@ -25,6 +23,9 @@ public class PassengerGroundTransport extends GroundTransport {
     }
 
     public void goSomeTime(int time) {
+        if(time <= 0) {
+            throw new IllegalArgumentException("время должно быть больше 0");
+        }
         int distance = time * this.getMaxSpeed();
         double consumptedFuel = this.consumptFuel(distance);
         String brand = this.getBrand();
@@ -40,6 +41,9 @@ public class PassengerGroundTransport extends GroundTransport {
     }
 
     public void setBodyType(String bodyType) {
+        if(bodyType.equals("")) {
+            throw new IllegalArgumentException("Тип кузова введён неверно");
+        }
         this.bodyType = bodyType;
     }
 
@@ -48,6 +52,9 @@ public class PassengerGroundTransport extends GroundTransport {
     }
 
     public void setPassengersNumber(int passengersNumber) {
+        if (passengersNumber < 0) {
+            throw new IllegalArgumentException("Количество пассажиров не может быть отрицательным");
+        }
         this.passengersNumber = passengersNumber;
     }
 }

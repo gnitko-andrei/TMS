@@ -7,15 +7,13 @@ public class GroundTransport extends Transport {
     private int fuelConsumption;
 
     public GroundTransport() {
-        super();
-        this.wheelsNumber = 4;
-        this.fuelConsumption = 8;
+        this(4, 8);
     }
 
     public GroundTransport(int wheelsNumber, int fuelConsumption) {
         super();
-        this.wheelsNumber = wheelsNumber;
-        this.fuelConsumption = fuelConsumption;
+        setWheelsNumber(wheelsNumber);
+        setFuelConsumption(fuelConsumption);
     }
 
     public void description() {
@@ -30,6 +28,11 @@ public class GroundTransport extends Transport {
     }
 
     public void setWheelsNumber(int wheelsNumber) {
+        if (wheelsNumber < 4) {
+            throw new IllegalArgumentException("Количество колёс должно быть не менее 4");
+        } else if (wheelsNumber % 2 != 0) {
+            throw new IllegalArgumentException("Количество колёс должно быть чётным");
+        }
         this.wheelsNumber = wheelsNumber;
     }
 
@@ -38,6 +41,9 @@ public class GroundTransport extends Transport {
     }
 
     public void setFuelConsumption(int fuelConsumption) {
+        if (fuelConsumption <= 0) {
+            throw new IllegalArgumentException("Расход топлива должен быть больше 0");
+        }
         this.fuelConsumption = fuelConsumption;
     }
 }
