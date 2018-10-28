@@ -1,4 +1,4 @@
-package classwork.cw6;
+package classwork.cw67;
 
 public class StringBuilderTest {
     public static void main(String[] args) {
