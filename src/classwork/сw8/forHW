@@ -1,0 +1,5 @@
+int start LocalTime.now().getNano;
+for(.....) {
+list.addSet(0, el)
+} add(1/2, el);
+int end = LocalTime.now().getNano();
