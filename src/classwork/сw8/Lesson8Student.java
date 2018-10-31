@@ -111,10 +111,7 @@ public class Lesson8Student implements Comparable<Lesson8Student>{
                 Objects.equals(marks, student1.marks);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, age, marks);
-    }
+
 
     @Override
     public int compareTo(Lesson8Student o) {
