@@ -10,7 +10,7 @@ public class HW1 {
         boolean isValid = runner.checkNumbers(numbers, 14);
         if (isValid) {
             for (int i = 0; i < numbers.length; i++) {
-                System.out.println("Task №" + numbers[i]);
+                System.out.println("Tasks №" + numbers[i]);
                 switch (numbers[i]) {
                     case 1: {
                         this.task1();
@@ -81,7 +81,7 @@ public class HW1 {
     }
 
     /**
-     * Task 1
+     * Tasks 1
      * есть переменные
      * byte b1 = 127;
      * byte b2 = 1;
@@ -119,7 +119,7 @@ public class HW1 {
     }
 
     /**
-     * Task 2
+     * Tasks 2
      * есть символ 'a'. выполнить инкремент. Проверить результат. Почему вывело именно это?
      */
     private void task2() {
@@ -131,7 +131,7 @@ public class HW1 {
     }
 
     /**
-     * Task 3
+     * Tasks 3
      * Объявить 2 Integer и присвоить значение 127 обоим. Сравнить между собой.
      * Результат вывести в виде "Equal? <результат сравнения>"
      * 3а) теперь поменять значение на 128. Повторить.
@@ -169,7 +169,7 @@ public class HW1 {
     }
 
     /**
-     * Task 4
+     * Tasks 4
      * Есть
      * String s1 = "123";
      * String s2 = "12" + "3";
@@ -201,7 +201,7 @@ public class HW1 {
     }
 
     /**
-     * Task 5
+     * Tasks 5
      * Вывести 0 используя 256 в качестве параметра (использовать приведение).
      */
     private void task5() {
@@ -209,7 +209,7 @@ public class HW1 {
     }
 
     /**
-     * Task 6
+     * Tasks 6
      * Есть числа 14 и 4. Используя операции деления (/, %) вывести 3.5 3 2 2.0
      */
     private void task6() {
@@ -222,7 +222,7 @@ public class HW1 {
     }
 
     /**
-     * Task 7
+     * Tasks 7
      * Есть символы ‘a’ и ‘b’. Вывести в консоль ab.
      */
     private void task7() {
@@ -235,7 +235,7 @@ public class HW1 {
     }
 
     /**
-     * Task 8
+     * Tasks 8
      * Записать в переменную типа long значение 12345678901.
      */
     private void task8() {
@@ -244,11 +244,11 @@ public class HW1 {
     }
 
     /**
-     * Task 9
+     * Tasks 9
      * Потренироваться с psvm, sout, soutv
      */
     /**
-     * Task 10
+     * Tasks 10
      * Есть 2 boolean переменные b1 == true, b2 == false.
      * Чему будет равен результат выражений (изначально попробовать вычислить без написания кода)
      * a) b1 ^ b2
@@ -275,7 +275,7 @@ public class HW1 {
     }
 
     /**
-     * Task 11
+     * Tasks 11
      * Есть 2 boolean переменные b1 == true, b2 == false.
      * Чему будет равно значение b2 и результат следующих операций (изначально попробовать вычислить без написания кода)
      * a) b1 | (b2=true)
@@ -299,7 +299,7 @@ public class HW1 {
     }
 
     /**
-     * Task 12
+     * Tasks 12
      * Объявить переменные класса (boolean, int, double, String) без присвоения им какого-либо значения.
      * Проверить, какая информация в них хранится. Затем перенести переменные в метод main и проверить значения.
      */
@@ -316,7 +316,7 @@ public class HW1 {
     }
 
     /**
-     * Task 13
+     * Tasks 13
      * Есть byte b = 123. Объявить новую переменную Integer i и присвоить b. Реализовать разными способами.
      */
     private void task13() {
@@ -329,7 +329,7 @@ public class HW1 {
     }
 
     /**
-     * Task 14
+     * Tasks 14
      * Есть Integer i = 123. Объявить переменные типа byte и Byte. Присвоить им значение переменной i.
      */
     private void task14() {

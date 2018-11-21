@@ -11,7 +11,7 @@ public class HW2 {
         boolean isValid = runner.checkNumbers(numbers, 14);
         if (isValid) {
             for (int i = 0; i < numbers.length; i++) {
-                System.out.println("Task №" + numbers[i]);
+                System.out.println("Tasks №" + numbers[i]);
                 switch (numbers[i]) {
                     case 1: {
                         this.task1();
@@ -51,7 +51,7 @@ public class HW2 {
     }
 
     /**
-     * Task 1
+     * Tasks 1
      * Есть массив со значениями {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}. Найти число 7, вывести и выйти (break;) из цикла.
      */
     private void task1() {
@@ -65,7 +65,7 @@ public class HW2 {
     }
 
     /**
-     * Task 2
+     * Tasks 2
      * Есть массив из 10 элементов. Заполнить рандомными значениями.
      * В каждой итерации выводить индекс массива. Вывести числа, которые делятся на 3.
      */
@@ -82,7 +82,7 @@ public class HW2 {
     }
 
     /**
-     * Task 3
+     * Tasks 3
      * Повторить задание 2 с использованием while.
      */
     private void task3() {
@@ -99,7 +99,7 @@ public class HW2 {
     }
 
     /**
-     * Task 4
+     * Tasks 4
      * Объявить 2-мерный массив 10x8, как только находится элемент,
      * который делится на 4, вывести его и перейти на следующую строку.
      * Пример:				Вывод в консоль
@@ -125,7 +125,7 @@ public class HW2 {
     }
 
     /**
-     * Task 5
+     * Tasks 5
      * Объявить 2-мерный массив 5x5, заполнить 0 и 1, затем взять каждую строку и преобразовать в 10-тичную систему.
      * Пример:	Вывод
      * 01010		10
@@ -149,7 +149,7 @@ public class HW2 {
     }
 
     /**
-     * Task 6
+     * Tasks 6
      * Есть массив 5х5. Вывести элемент в позиции [0,0]; [2,2]; [4,4].
      */
     private void task6() {

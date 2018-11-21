@@ -17,6 +17,17 @@ public class ArrayFunctions {
         return arr;
     }
 
+    public static Integer[] arrayIntegerRandomGeneration(int length) {
+        Integer[] arr = new Integer[length];
+        Random r = new Random();
+
+        for (int i = 0; i < length; i++) {
+            arr[i] = r.nextInt();
+        }
+
+        return arr;
+    }
+
     public static double[] arrayDoubleRandomGeneration(int length) {
         double[] arr = new double[length];
         Random r = new Random();
@@ -30,6 +41,17 @@ public class ArrayFunctions {
 
     public static int[] arrayRandomGenerationLimited(int length, int bound) {
         int[] arr = new int[length];
+        Random r = new Random();
+
+        for (int i = 0; i < length; i++) {
+            arr[i] = r.nextInt(bound);
+        }
+
+        return arr;
+    }
+
+    public static Integer[] arrayIntegerRandomGenerationLimited(int length, int bound) {
+        Integer[] arr = new Integer[length];
         Random r = new Random();
 
         for (int i = 0; i < length; i++) {
@@ -64,6 +86,14 @@ public class ArrayFunctions {
     }
 
     public static void printArray(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+
+        System.out.println();
+    }
+
+    public static void printArray(Integer[] arr) {
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
