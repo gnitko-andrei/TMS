@@ -5,7 +5,6 @@ public class Converter {
     }
 
     public static double inchToCentimeter(double inch) {
-        double cm = inch * 2.54D;
-        return cm;
+        return inch * 2.54D;
     }
 }

@@ -50,17 +50,6 @@ public class ArrayFunctions {
         return arr;
     }
 
-    public static Integer[] arrayIntegerRandomGenerationLimited(int length, int bound) {
-        Integer[] arr = new Integer[length];
-        Random r = new Random();
-
-        for (int i = 0; i < length; i++) {
-            arr[i] = r.nextInt(bound);
-        }
-
-        return arr;
-    }
-
     public static int[][] arrayRandomGeneration(int x, int y) {
         int[][] arr = new int[x][y];
         Random r = new Random();
@@ -86,41 +75,41 @@ public class ArrayFunctions {
     }
 
     public static void printArray(int[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
+        for (int element : arr) {
+            System.out.print(element + " ");
         }
 
         System.out.println();
     }
 
     public static void printArray(Integer[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
+        for (Integer element : arr) {
+            System.out.print(element + " ");
         }
 
         System.out.println();
     }
 
     public static void printArray(String[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i] + " ");
+        for (String element : arr) {
+            System.out.println(element + " ");
         }
 
         System.out.println();
     }
 
     public static void printArray(double[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i] + " ");
+        for (double element : arr) {
+            System.out.println(element + " ");
         }
 
         System.out.println();
     }
 
     public static void printArray(int[][] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                System.out.print(arr[i][j] + " ");
+        for (int[] oneDArray : arr) {
+            for (int element : oneDArray) {
+                System.out.print(element + " ");
             }
 
             System.out.println();
@@ -131,8 +120,8 @@ public class ArrayFunctions {
     public static double averageArray(int[] arr) {
         int sum = 0;
 
-        for (int i = 0; i < arr.length; i++) {
-            sum += arr[i];
+        for (int element : arr) {
+            sum += element;
         }
 
         return (double) (sum / arr.length);

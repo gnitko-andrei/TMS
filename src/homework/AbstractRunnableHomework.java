@@ -12,6 +12,20 @@ public abstract class AbstractRunnableHomework extends AbstractHomework implemen
         System.out.println("для завершения ввода напишите exit");
     }
 
+    public void runTask() throws InvalidTaskNumberException {
+        Runner runner = new Runner();
+        printWelcomeMessage();
+        int[] numbers = runner.readHWNumbers();
+        if (numbers != null) {
+            for (int i = 0; i < numbers.length; i++) {
+                System.out.println("Task №" + numbers[i]);
+                chooseTask(numbers, i);
+            }
+        }
+    }
+
+    public abstract void chooseTask(int[] numbers, int i) throws InvalidTaskNumberException;
+
     public static int getTasksAmount() {
         return tasksAmount;
     }
@@ -19,8 +33,6 @@ public abstract class AbstractRunnableHomework extends AbstractHomework implemen
     public static void setTasksAmount(int tasksAmount) {
         AbstractRunnableHomework.tasksAmount = tasksAmount;
     }
-
-
 
 
 }

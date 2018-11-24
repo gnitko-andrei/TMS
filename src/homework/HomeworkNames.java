@@ -1,6 +1,5 @@
 package homework;
 
-
 public enum HomeworkNames {
     INTRO(1, "Intro"),
     CONTROL_FLOWS(2, "Control Flows"),

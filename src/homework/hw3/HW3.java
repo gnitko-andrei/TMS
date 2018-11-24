@@ -2,87 +2,78 @@ package homework.hw3;
 
 import functions.ArrayFunctions;
 import functions.Converter;
-import homework.Runner;
+import homework.AbstractRunnableHomework;
+import homework.InvalidHomeworkNumberException;
+import homework.InvalidTaskNumberException;
 
 import java.util.Arrays;
 
-public class HW3 {
-    public void runTask() {
-        Runner runner = new Runner();
-        printWelcomeMessage();
-        int[] numbers = runner.readHWNumbers();
-        boolean isValid = runner.checkNumbers(numbers, 12);
-        if (isValid) {
-            for (int i = 0; i < numbers.length; i++) {
-                System.out.println("Tasks №" + numbers[i]);
-                switch (numbers[i]) {
-                    case 1: {
-                        System.out.println("Задание №1 - рефакторинг предыдущих заданий");
-                        break;
-                    }
-                    case 2: {
-                        this.task2();
-                        break;
-                    }
-                    case 3: {
-                        System.out.println("Задание №3 выполняется в классе Homework.hw3.Task3\n" +
-                                " и нуждается в задании необходимых параметров через program arguments");
-                        break;
-                    }
-                    case 4: {
-                        this.task4();
-                        break;
-                    }
-                    case 5: {
-                        this.task5();
-                        break;
-                    }
-                    case 6: {
-                        this.task6();
-                        break;
-                    }
-                    case 7: {
-                        this.task7();
-                        break;
-                    }
-                    case 8: {
-                        this.task8();
-                        break;
-                    }
-                    case 9: {
-                        System.out.println("Задание №9 выполняется в классе Homework.hw3.Task9\n" +
-                                " и нуждается в задании необходимых параметров через program arguments");
-                        break;
-                    }
-                    case 10: {
-                        System.out.println("Задание №10 = заднание №5 из занятия №2");
-                        break;
-                    }
-                    case 11: {
-                        this.task11();
-                        break;
-                    }
-                    case 12:
-                        this.task12();
-                        break;
-                }
-                System.out.println();
+public class HW3 extends AbstractRunnableHomework {
+    public HW3() throws InvalidHomeworkNumberException {
+        setTasksAmount(12);
+        initialize(3);
+    }
+
+    @Override
+    public void chooseTask(int[] numbers, int i) throws InvalidTaskNumberException {
+        switch (numbers[i]) {
+            case 1: {
+                System.out.println("рефакторинг предыдущих заданий");
+                break;
+            }
+            case 2: {
+                this.task2();
+                break;
+            }
+            case 3: {
+                System.out.println("выполняется в классе Homework.hw3.Task3\n" +
+                        "и нуждается в задании необходимых параметров через program arguments");
+                break;
+            }
+            case 4: {
+                this.task4();
+                break;
+            }
+            case 5: {
+                this.task5();
+                break;
+            }
+            case 6: {
+                this.task6();
+                break;
+            }
+            case 7: {
+                this.task7();
+                break;
+            }
+            case 8: {
+                this.task8();
+                break;
+            }
+            case 9: {
+                System.out.println("выполняется в классе Homework.hw3.Task9\n" +
+                        "и нуждается в задании необходимых параметров через program arguments");
+                break;
+            }
+            case 10: {
+                System.out.println("заднание №5 из занятия №2");
+                break;
+            }
+            case 11: {
+                this.task11();
+                break;
+            }
+            case 12: {
+                this.task12();
+                break;
+            }
+            default: {
+                throw new InvalidTaskNumberException(numbers[i] + " неправильный номер задания");
             }
         }
-
+        System.out.println();
     }
 
-    private void printWelcomeMessage() {
-        System.out.println("Задания занятия №3 Arrays");
-        System.out.println("Введите номер задания от 1 до 12 (можно несколько в формате 1-14 или 1 2 3...)");
-        System.out.println("для завершения ввода напишите exit");
-    }
-
-    /**
-     * Tasks 1
-     * Провести рефакторинг предыдущих домашек (названия переменных, методов, класса, каждое задание вынести в метод,
-     * в случае дублирующегося (copy&paste) кода тоже вынести в отдельный метод, провести структуризацию по пакетам).
-     */
     /**
      * Tasks 2
      * Напишите программу печати таблицы перевода расстояний из дюймов в сантиметры
@@ -117,8 +108,8 @@ public class HW3 {
             }
         }
         ArrayFunctions.printArray(arr);
-        for (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i]);
+        for (int element : arr) {
+            System.out.println(element);
         }
     }
 
@@ -159,8 +150,8 @@ public class HW3 {
         ArrayFunctions.printArray(arr);
         int n = 0;
 
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] % 2 == 0) {
+        for (int element : arr) {
+            if (element % 2 == 0) {
                 ++n;
             }
         }
@@ -181,7 +172,7 @@ public class HW3 {
             if (i % 2 != 0) {
                 if (arr[i] != 0) {
                     arr[i] = 0;
-                    ++n;
+                    n++;
                 }
             }
         }
@@ -215,10 +206,6 @@ public class HW3 {
     }
 
     /**
-     * Tasks 10
-     * Выполнить 5 задание из прошлой домашки.
-     */
-    /**
      * Tasks 11
      * Создать массив со случайными числами от 5 до 15. Используя функцию поиска, найти в нем 7, 9, 10.
      * Вывести индексы. Если не найдено, то вывести “Element with value N not found”, где N - искомое число.
@@ -236,7 +223,7 @@ public class HW3 {
         searchValue(arr, 10);
     }
 
-    public void searchValue(int[] arr, int i) {
+    private void searchValue(int[] arr, int i) {
         int n = Arrays.binarySearch(arr, i);
         if (n >= 0) {
             System.out.printf("Index of %d is %d\n", i, n);

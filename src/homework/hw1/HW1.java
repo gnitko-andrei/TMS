@@ -2,7 +2,7 @@ package homework.hw1;
 
 import homework.AbstractRunnableHomework;
 import homework.InvalidHomeworkNumberException;
-import homework.Runner;
+import homework.InvalidTaskNumberException;
 
 public class HW1 extends AbstractRunnableHomework {
 
@@ -11,75 +11,69 @@ public class HW1 extends AbstractRunnableHomework {
         initialize(1);
     }
 
-    public void runTask() {
-        Runner runner = new Runner();
-        printWelcomeMessage();
-        int[] numbers = runner.readHWNumbers();
-        boolean isValid = runner.checkNumbers(numbers, getTasksAmount());
-        if (isValid) {
-            for (int i = 0; i < numbers.length; i++) {
-                System.out.println("Task №" + numbers[i]);
-                switch (numbers[i]) {
-                    case 1: {
-                        this.task1();
-                        break;
-                    }
-                    case 2: {
-                        this.task2();
-                        break;
-                    }
-                    case 3: {
-                        this.task3();
-                        break;
-                    }
-                    case 4: {
-                        this.task4();
-                        break;
-                    }
-                    case 5: {
-                        this.task5();
-                        break;
-                    }
-                    case 6: {
-                        this.task6();
-                        break;
-                    }
-                    case 7: {
-                        this.task7();
-                        break;
-                    }
-                    case 8: {
-                        this.task8();
-                        break;
-                    }
-                    case 9: {
-                        System.out.println("Задание №9 не имеет вывода");
-                        break;
-                    }
-                    case 10: {
-                        this.task10();
-                        break;
-                    }
-                    case 11: {
-                        this.task11();
-                        break;
-                    }
-                    case 12:
-                        this.task12();
-                        break;
-                    case 13: {
-                        this.task13();
-                        break;
-                    }
-                    case 14: {
-                        this.task14();
-                        break;
-                    }
-                }
-                System.out.println();
+    @Override
+    public void chooseTask(int[] numbers, int i) throws InvalidTaskNumberException {
+        switch (numbers[i]) {
+            case 1: {
+                this.task1();
+                break;
+            }
+            case 2: {
+                this.task2();
+                break;
+            }
+            case 3: {
+                this.task3();
+                break;
+            }
+            case 4: {
+                this.task4();
+                break;
+            }
+            case 5: {
+                this.task5();
+                break;
+            }
+            case 6: {
+                this.task6();
+                break;
+            }
+            case 7: {
+                this.task7();
+                break;
+            }
+            case 8: {
+                this.task8();
+                break;
+            }
+            case 9: {
+                System.out.println("Задание №9 не имеет вывода");
+                break;
+            }
+            case 10: {
+                this.task10();
+                break;
+            }
+            case 11: {
+                this.task11();
+                break;
+            }
+            case 12:
+                this.task12();
+                break;
+            case 13: {
+                this.task13();
+                break;
+            }
+            case 14: {
+                this.task14();
+                break;
+            }
+            default: {
+                throw new InvalidTaskNumberException(numbers[i] + " неправильный номер задания");
             }
         }
-
+        System.out.println();
     }
 
     /**
@@ -100,7 +94,7 @@ public class HW1 extends AbstractRunnableHomework {
         int sum = b1 + b2;
         System.out.println("Sum = " + sum);
         System.out.println("1b");
-        System.out.println((byte) (b1+b2));
+        System.out.println((byte) (b1 + b2));
         System.out.println("1c");
         System.out.printf("%d %d %d %d \n", (b2 << 1), (b2 << 2), (b2 << 3), (b2 << 4));
         System.out.println(b1 + b2);

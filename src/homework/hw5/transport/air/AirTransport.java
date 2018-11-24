@@ -2,7 +2,7 @@ package homework.hw5.transport.air;
 
 import homework.hw5.transport.Transport;
 
-public class AirTransport extends Transport {
+public abstract class AirTransport extends Transport {
     private int wingspan; //размах крыльев
     private int minRunwayLength; //минимальная длинна взлётно-посадочной полосы
 
@@ -38,7 +38,7 @@ public class AirTransport extends Transport {
     }
 
     public void setMinRunwayLength(int minRunwayLength) {
-        if(minRunwayLength <= 0) {
+        if (minRunwayLength <= 0) {
             throw new IllegalArgumentException("Минимальная длинна взлётной полосы должна быть больше 0");
         }
         this.minRunwayLength = minRunwayLength;

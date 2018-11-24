@@ -1,5 +1,5 @@
 package homework;
 
 public interface RunnableHomework {
-    public void runTask();
+    public void runTask() throws InvalidTaskNumberException;
 }

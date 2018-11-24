@@ -1,53 +1,49 @@
 package homework.hw2;
 
 import functions.ArrayFunctions;
-import homework.Runner;
+import homework.AbstractRunnableHomework;
+import homework.InvalidHomeworkNumberException;
+import homework.InvalidTaskNumberException;
 
-public class HW2 {
-    public void runTask() {
-        Runner runner = new Runner();
-        printWelcomeMessage();
-        int[] numbers = runner.readHWNumbers();
-        boolean isValid = runner.checkNumbers(numbers, 14);
-        if (isValid) {
-            for (int i = 0; i < numbers.length; i++) {
-                System.out.println("Tasks №" + numbers[i]);
-                switch (numbers[i]) {
-                    case 1: {
-                        this.task1();
-                        break;
-                    }
-                    case 2: {
-                        this.task2();
-                        break;
-                    }
-                    case 3: {
-                        this.task3();
-                        break;
-                    }
-                    case 4: {
-                        this.task4();
-                        break;
-                    }
-                    case 5: {
-                        this.task5();
-                        break;
-                    }
-                    case 6: {
-                        this.task6();
-                        break;
-                    }
-                }
-                System.out.println();
-            }
-        }
+public class HW2 extends AbstractRunnableHomework {
 
+    public HW2() throws InvalidHomeworkNumberException {
+        setTasksAmount(6);
+        initialize(2);
     }
 
-    private void printWelcomeMessage() {
-        System.out.println("Задания занятия №2 Control flows");
-        System.out.println("Введите номер задания от 1 до 6 (можно несколько в формате 1-14 или 1 2 3...)");
-        System.out.println("для завершения ввода напишите exit");
+    @Override
+    public void chooseTask(int[] numbers, int i) throws InvalidTaskNumberException {
+        switch (numbers[i]) {
+            case 1: {
+                this.task1();
+                break;
+            }
+            case 2: {
+                this.task2();
+                break;
+            }
+            case 3: {
+                this.task3();
+                break;
+            }
+            case 4: {
+                this.task4();
+                break;
+            }
+            case 5: {
+                this.task5();
+                break;
+            }
+            case 6: {
+                this.task6();
+                break;
+            }
+            default: {
+                throw new InvalidTaskNumberException(numbers[i] + " неправильный номер задания");
+            }
+        }
+        System.out.println();
     }
 
     /**
@@ -56,9 +52,9 @@ public class HW2 {
      */
     private void task1() {
         int[] arr = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == 7) {
-                System.out.println(arr[i]);
+        for (int arrElement : arr) {
+            if (arrElement == 7) {
+                System.out.println(arrElement);
                 break;
             }
         }
@@ -73,9 +69,9 @@ public class HW2 {
         int[] arr = ArrayFunctions.arrayRandomGeneration(10);
         ArrayFunctions.printArray(arr);
         for (int i = 0; i < arr.length; i++) {
-            System.out.println(i);
+            System.out.println("i = " + i);
             if (arr[i] % 3 == 0) {
-                System.out.println(arr[i]);
+                System.out.println(arr[i] + "делится на 3");
             }
         }
 
@@ -90,9 +86,9 @@ public class HW2 {
         ArrayFunctions.printArray(arr);
         int i = 0;
         while (i < arr.length) {
-            System.out.println(i);
+            System.out.println("i = " + i);
             if (arr[i] % 3 == 0) {
-                System.out.println(arr[i]);
+                System.out.println(arr[i] + "делится на 3");
             }
             i++;
         }

@@ -1,7 +1,5 @@
 package homework.hw5.transport.air;
 
-import homework.hw5.transport.air.AirTransport;
-
 public class CivilAirTransport extends AirTransport {
     private int passengersMaxNumber;
     private boolean isBusinessClass;
@@ -27,7 +25,7 @@ public class CivilAirTransport extends AirTransport {
     }
 
     public void printLoadMessage(int passengersNumber) {
-        if(passengersNumber < 0) {
+        if (passengersNumber < 0) {
             throw new IllegalArgumentException("Число пассажиров не может быть отрицательным");
         }
         if (passengersNumber == 0) {
@@ -45,7 +43,7 @@ public class CivilAirTransport extends AirTransport {
     }
 
     public void setPassengersMaxNumber(int passengersMaxNumber) {
-        if(passengersMaxNumber <= 0) {
+        if (passengersMaxNumber <= 0) {
             throw new IllegalArgumentException("Максимальное исло пассажиров должно быть больше 0");
         }
         this.passengersMaxNumber = passengersMaxNumber;

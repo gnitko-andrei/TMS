@@ -6,7 +6,7 @@ public abstract class AbstractHomework {
 
     public void printWelcomeMessage() {
         System.out.printf("Задания занятия №%d %s\n", number, name);
-        System.out.printf("Задание занятия №5 имеет не исполняемую реализацию и находится в пакете homework.hw%d\n", number);
+        System.out.printf("Оно имеет не исполняемую реализацию и находится в пакете homework.hw%d\n", number);
     }
 
     public void initialize(int number) throws InvalidHomeworkNumberException {
@@ -14,7 +14,7 @@ public abstract class AbstractHomework {
         setName(number);
     }
 
-    private void setNumber(int number) throws InvalidHomeworkNumberException {
+    private void setNumber(int number) {
         this.number = number;
     }
 

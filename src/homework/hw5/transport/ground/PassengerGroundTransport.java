@@ -23,7 +23,7 @@ public class PassengerGroundTransport extends GroundTransport {
     }
 
     public void goSomeTime(int time) {
-        if(time <= 0) {
+        if (time <= 0) {
             throw new IllegalArgumentException("время должно быть больше 0");
         }
         int distance = time * this.getMaxSpeed();
@@ -33,7 +33,7 @@ public class PassengerGroundTransport extends GroundTransport {
     }
 
     private double consumptFuel(int distance) {
-        return (double)(this.getFuelConsumption() * distance / 100);
+        return (double) (this.getFuelConsumption() * distance / 100);
     }
 
     public String getBodyType() {
@@ -41,7 +41,7 @@ public class PassengerGroundTransport extends GroundTransport {
     }
 
     public void setBodyType(String bodyType) {
-        if(bodyType.equals("")) {
+        if (bodyType.equals("")) {
             throw new IllegalArgumentException("Тип кузова введён неверно");
         }
         this.bodyType = bodyType;

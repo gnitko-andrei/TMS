@@ -1,13 +1,13 @@
 package homework.hw5.transport;
 
-public class Transport {
+public abstract class Transport {
     private int capacity;
     private int maxSpeed;
     private int weight;
     private String brand;
 
     public Transport() {
-        this(150, 230, 1600,"Volkswagen");
+        this(150, 230, 1600, "Volkswagen");
     }
 
     public Transport(int capacity, int maxSpeed, int weight, String brand) {
@@ -34,7 +34,7 @@ public class Transport {
     }
 
     public void setCapacity(int capacity) {
-        if(capacity <= 0) {
+        if (capacity <= 0) {
             throw new java.lang.IllegalArgumentException("Мощность должна быть больше 0");
         }
         this.capacity = capacity;
@@ -45,7 +45,7 @@ public class Transport {
     }
 
     public void setMaxSpeed(int maxSpeed) {
-        if(maxSpeed <= 0) {
+        if (maxSpeed <= 0) {
             throw new java.lang.IllegalArgumentException("Максимальная скорость должна быть больше 0");
         }
         this.maxSpeed = maxSpeed;
@@ -56,7 +56,7 @@ public class Transport {
     }
 
     public void setWeight(int weight) {
-        if(weight <= 0) {
+        if (weight <= 0) {
             throw new java.lang.IllegalArgumentException("Вес должен быть больше 0");
         }
         this.weight = weight;
@@ -67,7 +67,7 @@ public class Transport {
     }
 
     public void setBrand(String brand) {
-        if(brand.equals("")) {
+        if (brand.equals("")) {
             throw new java.lang.IllegalArgumentException("Марка введёна неверно");
         }
         this.brand = brand;

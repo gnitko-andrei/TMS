@@ -10,10 +10,10 @@ import functions.ArrayFunctions;
 public class Task3 {
 
     public static void main(String[] args) {
-        System.out.println("Tasks 3");
+        System.out.println("Task 3");
         int length = Integer.parseInt(args[0]);
         String[] arr = new String[length];
-        for (int i = 0; i < length; i++) {
+        for (int i = 0; i < arr.length; i++) {
             arr[i] = "Hello World";
         }
         ArrayFunctions.printArray(arr);

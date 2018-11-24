@@ -15,12 +15,12 @@ public class Task9 {
         System.out.println("Tasks 9");
         double[] arr = ArrayFunctions.arrayDoubleRandomGeneration(Integer.parseInt(args[0]));
         ArrayFunctions.printArray(arr);
-        for(int i = 0; i < arr.length; i++) {
-            if (arr[i] * 10 < 3) {
+        for (double element : arr) {
+            if (element * 10 < 3) {
                 System.out.println("[0, 3]");
-            } else if (arr[i] * 10 < 6) {
+            } else if (element * 10 < 6) {
                 System.out.println("[3, 6]");
-            } else if ( arr[i] * 10 <= 10) {
+            } else if (element * 10 <= 10) {
                 System.out.println("[6, 9]");
             }
         }

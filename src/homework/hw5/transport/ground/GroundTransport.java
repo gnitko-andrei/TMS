@@ -2,7 +2,7 @@ package homework.hw5.transport.ground;
 
 import homework.hw5.transport.Transport;
 
-public class GroundTransport extends Transport {
+public abstract class GroundTransport extends Transport {
     private int wheelsNumber;
     private int fuelConsumption;
 
@@ -16,7 +16,7 @@ public class GroundTransport extends Transport {
         setFuelConsumption(fuelConsumption);
     }
 
-    public void description() {
+    public void printDescription() {
         super.printDescription();
         System.out.println("Это наземный транспорт");
         System.out.println("Количество колёс " + wheelsNumber);

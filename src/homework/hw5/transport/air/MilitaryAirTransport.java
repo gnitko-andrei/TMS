@@ -1,7 +1,5 @@
 package homework.hw5.transport.air;
 
-import homework.hw5.transport.air.AirTransport;
-
 public class MilitaryAirTransport extends AirTransport {
     private boolean isEjectionSystem;
     private int missilesNumber;
@@ -53,7 +51,7 @@ public class MilitaryAirTransport extends AirTransport {
     }
 
     public void setMissilesNumber(int missilesNumber) {
-        if(missilesNumber < 0) {
+        if (missilesNumber < 0) {
             throw new IllegalArgumentException("Количество ракет не может быть отрицательным");
         }
         this.missilesNumber = missilesNumber;
