@@ -1,16 +1,24 @@
 package homework.hw1;
 
+import homework.AbstractRunnableHomework;
+import homework.InvalidHomeworkNumberException;
 import homework.Runner;
 
-public class HW1 {
+public class HW1 extends AbstractRunnableHomework {
+
+    public HW1() throws InvalidHomeworkNumberException {
+        setTasksAmount(14);
+        initialize(1);
+    }
+
     public void runTask() {
         Runner runner = new Runner();
         printWelcomeMessage();
         int[] numbers = runner.readHWNumbers();
-        boolean isValid = runner.checkNumbers(numbers, 14);
+        boolean isValid = runner.checkNumbers(numbers, getTasksAmount());
         if (isValid) {
             for (int i = 0; i < numbers.length; i++) {
-                System.out.println("Tasks №" + numbers[i]);
+                System.out.println("Task №" + numbers[i]);
                 switch (numbers[i]) {
                     case 1: {
                         this.task1();
@@ -74,12 +82,6 @@ public class HW1 {
 
     }
 
-    private void printWelcomeMessage() {
-        System.out.println("Задания занятия №1 Intro");
-        System.out.println("Введите номер задания от 1 до 14 (можно несколько в формате 1-14 или 1 2 3...)");
-        System.out.println("для завершения ввода напишите exit");
-    }
-
     /**
      * Tasks 1
      * есть переменные
@@ -96,26 +98,15 @@ public class HW1 {
         byte b2 = 1;
         System.out.println("1a");
         int sum = b1 + b2;
-        System.out.println(sum);
+        System.out.println("Sum = " + sum);
         System.out.println("1b");
-        sum = -sum;
-        System.out.println(sum);
+        System.out.println((byte) (b1+b2));
         System.out.println("1c");
-        byte b3 = (byte) (b2 << 1);
-        byte b4 = (byte) (b2 << 2);
-        byte b5 = (byte) (b2 << 3);
-        byte b6 = (byte) (b2 << 4);
+        System.out.printf("%d %d %d %d \n", (b2 << 1), (b2 << 2), (b2 << 3), (b2 << 4));
         System.out.println(b1 + b2);
         System.out.println("1d");
-        System.out.println(b2);
-        b2 = (byte) (b2 << 1);
-        System.out.println(b2);
-        b2 = (byte) (b2 << 1);
-        System.out.println(b2);
-        b2 = (byte) (b2 << 1);
-        System.out.println(b2);
-        b2 = (byte) (b2 << 1);
-        System.out.println(b2);
+        System.out.printf("%d << %d << %d << %d << %d \n", b2, (b2 <<= 1), (b2 <<= 1), (b2 <<= 1), (b2 <<= 1));
+
     }
 
     /**
@@ -123,11 +114,8 @@ public class HW1 {
      * есть символ 'a'. выполнить инкремент. Проверить результат. Почему вывело именно это?
      */
     private void task2() {
-        char symbol = 'a';
-        char symbolInkr = symbol++;
-        System.out.println(symbolInkr + " " + symbol);
-        int a = Character.getNumericValue(symbol);
-        int b = Character.getNumericValue(symbolInkr);
+        char a = 'a';
+        System.out.println(a++ + " " + a);
     }
 
     /**
@@ -143,13 +131,13 @@ public class HW1 {
         System.out.println("Equal? " + (one == two));
         System.out.println(this.compareInt(one, two));
         System.out.println("task3a");
-        Integer oneA = 127;
+        Integer oneA = 128;
         Integer twoA = 128;
         System.out.println("Equal? " + (oneA == twoA));
         System.out.println(this.compareInt(oneA, twoA));
         System.out.println("task3b");
-        int oneB = 127;
-        int twoB = 127;
+        int oneB = 128;
+        int twoB = 128;
         System.out.println("Equal? " + (oneB == twoB));
         System.out.println(this.compareInt(oneB, twoB));
     }

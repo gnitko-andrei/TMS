@@ -8,15 +8,16 @@ import java.util.Scanner;
 
 public class Runner {
 
-    public static void main(String[] args) {
+    private int homeworksAmount = HomeworkNames.getAmount();
+    public static void main(String[] args) throws InvalidHomeworkNumberException {
         Runner runner = new Runner();
         runner.runHW();
     }
 
-    private void runHW() {
+    private void runHW() throws InvalidHomeworkNumberException {
         printWelcomeMessage();
         int[] numbers = readHWNumbers();
-        boolean isValid = checkNumbers(numbers, 5);
+        boolean isValid = checkNumbers(numbers, homeworksAmount);
         if (isValid) {
             for (int i = 0; i < numbers.length; i++) {
                 switch (numbers[i]) {
@@ -49,8 +50,15 @@ public class Runner {
     }
 
     private void printWelcomeMessage() {
-        System.out.println("Введите номер занятия (можно несколько в формате 1-4 или 1 2 3...)");
-        System.out.println("1.Intro, 2.Control flows, 3.Arrays, 4.Class, 5. Interface");
+        int amount = HomeworkNames.getAmount();
+        System.out.printf("Введите номер задания от 1 до %d (можно несколько в формате 1-%d или 1 2 3...)\n", amount, amount);
+        for (HomeworkNames value : HomeworkNames.values()) {
+            System.out.printf("%d. %s", value.getNumber(), value.getName());
+            if(value.getNumber() < homeworksAmount
+                    && value.getNumber() != homeworksAmount/2) {
+                System.out.print(", ");
+            } else System.out.println(".");
+        }
         System.out.println("для завершения ввода напишите exit");
     }
 
@@ -66,10 +74,13 @@ public class Runner {
         }
         int[] numbers = findNumbersFromString(numbersString);
         return numbers;
-
     }
 
     private int[] findNumbersFromString(String numbersString) {
+        if(numbersString.isEmpty())
+        {
+            return null;
+        }
         String[] stringNumbersArray;
         int[] numbers;
         if (numbersString.contains("-")) {
@@ -91,6 +102,10 @@ public class Runner {
     }
 
     public boolean checkNumbers(int[] numbers, int amount) {
+        if(numbers == null)
+        {
+            return false;
+        }
         for (int i = 0; i < numbers.length; i++) {
             if (numbers[i] > amount) {
                 System.out.println("неправильный номер задания");
