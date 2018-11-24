@@ -14,7 +14,7 @@ public class HW7 {
         student.addMark(3);
         System.out.println(student.getAverageMark());
 
-}
+    }
     /**
      * Tasks 1
      * Добавить собственные исключения к домашке с транспортом.
@@ -73,15 +73,15 @@ public class HW7 {
         String[] sentences = content.split("[.!?]");
         String message = "";
         int count = 0;
-        for(String censWord : blackList) {
+        for (String censWord : blackList) {
             for (String sentence : sentences) {
-                if((sentence.toLowerCase()).contains(censWord.toLowerCase())) {
+                if ((sentence.toLowerCase()).contains(censWord.toLowerCase())) {
                     message += sentence;
                     count++;
                 }
             }
         }
-        if(count != 0) {
+        if (count != 0) {
             System.out.println("Предложений не прошли проверку: " + count);
             System.out.println(message);
         } else {

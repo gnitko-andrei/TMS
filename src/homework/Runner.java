@@ -5,6 +5,7 @@ import homework.hw2.HW2;
 import homework.hw3.HW3;
 import homework.hw4.HW4;
 import homework.hw5.HW5;
+import homework.hw6.HW6;
 
 import java.util.Scanner;
 
@@ -45,6 +46,11 @@ public class Runner {
                     }
                     case 5: {
                         AbstractHomework hw = new HW5();
+                        runTasks(hw);
+                        break;
+                    }
+                    case 6: {
+                        AbstractHomework hw = new HW6();
                         runTasks(hw);
                         break;
                     }

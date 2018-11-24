@@ -5,9 +5,9 @@ import java.util.*;
 
 import homework.hw7.task4.Student;
 
-public class hw8 {
-    public static void main(String[] args) {
-        hw8 hw = new hw8();
+public class HW8 {
+        public static void main(String[] args) {
+        HW8 hw = new HW8();
         hw.task2();
     }
 
