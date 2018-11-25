@@ -1,28 +1,50 @@
 package homework.hw9.loading;
 
-import java.sql.SQLOutput;
-
+/**
+ * Класс грузчика.
+ *
+ * @author Gnitko Andrei
+ */
 public class Loader extends Thread {
+    /**
+     * Производительность.
+     */
     private int productivity;
+    /**
+     * Число погруженных ящиков
+     */
     private int boxNumber;
-    Loading loading;
+    /**
+     * Текущее задание на погрузку
+     */
+    private Loading loading;
 
+    /**
+     * Конструктор, задающий имя, продуктивность и задание на погрузку.
+     *
+     * @param name         имя
+     * @param productivity производительность
+     * @param loading      задание на погрузку
+     */
     public Loader(String name, int productivity, Loading loading) {
         super(name);
         this.productivity = productivity;
         this.loading = loading;
     }
 
+    /**
+     * Процесс погрузки ящиков в соответствии с заданной производительностью
+     */
     @Override
     public void run() {
         System.out.println(getName() + " начал работать");
         while (true) {
+            try {
+                Thread.sleep(60000 / productivity);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             if (loading.getBoxNumber() > 0) {
-                try {
-                    Thread.sleep(60000 / productivity);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
                 loading.takeBox();
                 System.out.println(getName() + " погрузил ещё один ящик, осталось ещё " + loading.getBoxNumber());
                 boxNumber++;
@@ -35,10 +57,18 @@ public class Loader extends Thread {
 
     }
 
+    /**
+     * Геттер для производительности.
+     * @return производительность
+     */
     public int getProductivity() {
         return productivity;
     }
 
+    /**
+     * Сеттер для производительности.
+     * @param productivity производительность
+     */
     public void setProductivity(int productivity) {
         this.productivity = productivity;
     }

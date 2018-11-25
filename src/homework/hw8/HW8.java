@@ -3,12 +3,56 @@ package homework.hw8;
 import java.time.LocalTime;
 import java.util.*;
 
+import homework.AbstractRunnableHomework;
+import homework.InvalidHomeworkNumberException;
+import homework.InvalidTaskNumberException;
 import homework.hw7.task4.Student;
 
-public class HW8 {
-        public static void main(String[] args) {
-        HW8 hw = new HW8();
-        hw.task2();
+/**
+ * Класс содержащий ДЗ №8.
+ *
+ * @author Gnitko Andrei
+ * @see AbstractRunnableHomework
+ */
+public class HW8 extends AbstractRunnableHomework {
+    /**
+     * Контруктор, задающий имя, номер и количество заданий в ДЗ.
+     *
+     * @throws InvalidHomeworkNumberException
+     */
+    public HW8() throws InvalidHomeworkNumberException {
+        setTasksAmount(4);
+        initialize(8);
+    }
+
+    /**
+     * @param number - номер задания
+     * @throws InvalidTaskNumberException исключение выбрасывается в случае несовпаденя номера задания с перечисленными в блоке switch
+     */
+    @Override
+    public void chooseTask(int number) throws InvalidTaskNumberException {
+        switch (number) {
+            case 1: {
+                this.task1();
+                break;
+            }
+            case 2: {
+                this.task2();
+                break;
+            }
+            case 3: {
+                this.task3();
+                break;
+            }
+            case 4: {
+                System.out.println("Рефакторинг предыдущих ДЗ");
+                break;
+            }
+            default: {
+                throw new InvalidTaskNumberException(number + " неправильный номер задания");
+            }
+        }
+        System.out.println();
     }
 
     /**
@@ -17,9 +61,8 @@ public class HW8 {
      * Доделать пример с TreeSet, попробовать HashMap, TreeMap.
      * Сделать “плохую” версию хэшкода и проверить, что внутри будет.
      */
-
     private void task1() {
-        List<Student> list = new ArrayList<>();
+        List<Student> list  = new ArrayList<>();
         Student student1 = new Student(5, "A", 20, new ArrayList<>());
         Student student2 = new Student(2, "B", 21, new ArrayList<>());
         Student student3 = new Student(8, "y", 19, new ArrayList<>());
@@ -60,7 +103,6 @@ public class HW8 {
      * Исследовать варианты вставки в начало списка, середину и конец.
      * Результатом должно быть значение, равное размеру коллекции (примерно), при котором LinkedList окажется быстрее.
      */
-
     private void task2() {
         System.out.println("В начало");
         System.out.println(compareListsStart(10));
@@ -83,6 +125,13 @@ public class HW8 {
 
     }
 
+    /**
+     * Метод сравнивает время вставки заданного количества элементов в конец ArrayList и LinkedList
+     * и возвращает строку с соотвтствующим сообщением
+     *
+     * @param numberOfElements количество элементов
+     * @return строка с соотвтствующим сообщением
+     */
     private String compareListsEnd(int numberOfElements) {
         int n = getArrayListTimeEnd(numberOfElements) - getLinkedListTimeEnd(numberOfElements);
         if (n == 0) {
@@ -92,6 +141,12 @@ public class HW8 {
         } else return "ArrayList быстрее при " + numberOfElements + " элементов разница " + Math.abs(n);
     }
 
+    /**
+     * Метод расчитывает время вставки заданного количества элементов в конец ArrayList
+     *
+     * @param numberOfElements количество элементов
+     * @return время в нс
+     */
     private int getArrayListTimeEnd(int numberOfElements) {
         ArrayList<Integer> arrayList = new ArrayList<>();
         int start = LocalTime.now().getNano();
@@ -102,6 +157,12 @@ public class HW8 {
         return end - start;
     }
 
+    /**
+     * Метод расчитывает время вставки заданного количества элементов в конец LinkedList
+     *
+     * @param numberOfElements количество элементов
+     * @return время в нс
+     */
     private int getLinkedListTimeEnd(int numberOfElements) {
         LinkedList<Integer> linkedList = new LinkedList<>();
         int start = LocalTime.now().getNano();
@@ -112,6 +173,13 @@ public class HW8 {
         return end - start;
     }
 
+    /**
+     * Метод сравнивает время вставки заданного количества элементов в начало ArrayList и LinkedList
+     * и возвращает строку с соотвтствующим сообщением
+     *
+     * @param numberOfElements количество элементов
+     * @return строку с соотвтствующим сообщением
+     */
     private String compareListsStart(int numberOfElements) {
         int n = getArrayListTimeStart(numberOfElements) - getLinkedListTimeStart(numberOfElements);
         if (n == 0) {
@@ -121,6 +189,12 @@ public class HW8 {
         } else return "ArrayList быстрее при " + numberOfElements + " элементов разница " + Math.abs(n);
     }
 
+    /**
+     * Метод расчитывает время вставки заданного количества элементов в начало ArrayList
+     *
+     * @param numberOfElements количество элементов
+     * @return время в нс
+     */
     private int getArrayListTimeStart(int numberOfElements) {
         ArrayList<Integer> arrayList = new ArrayList<>();
         int start = LocalTime.now().getNano();
@@ -131,6 +205,12 @@ public class HW8 {
         return end - start;
     }
 
+    /**
+     * Метод расчитывает время вставки заданного количества элементов в начало LinkedList
+     *
+     * @param numberOfElements количество элементов
+     * @return время в нс
+     */
     private int getLinkedListTimeStart(int numberOfElements) {
         LinkedList<Integer> linkedList = new LinkedList<>();
         int start = LocalTime.now().getNano();
@@ -141,6 +221,13 @@ public class HW8 {
         return end - start;
     }
 
+    /**
+     * Метод сравнивает время вставки заданного количества элементов в середину ArrayList и LinkedList
+     * и возвращает строку с соотвтствующим сообщением
+     *
+     * @param numberOfElements количество элементов
+     * @return строку с соотвтствующим сообщением
+     */
     private String compareListsMiddle(int numberOfElements) {
         int n = getArrayListTimeMiddle(numberOfElements) - getLinkedListTimeMiddle(numberOfElements);
         if (n == 0) {
@@ -150,21 +237,33 @@ public class HW8 {
         } else return "ArrayList быстрее при " + numberOfElements + " элементов разница " + Math.abs(n);
     }
 
+    /**
+     * Метод расчитывает время вставки заданного количества элементов в середину ArrayList
+     *
+     * @param numberOfElements количество элементов
+     * @return время в нс
+     */
     private int getArrayListTimeMiddle(int numberOfElements) {
         ArrayList<Integer> arrayList = new ArrayList<>();
         int start = LocalTime.now().getNano();
         for (int i = 0; i < numberOfElements; i++) {
-            arrayList.add(arrayList.size()/2 ,i);
+            arrayList.add(arrayList.size() / 2, i);
         }
         int end = LocalTime.now().getNano();
         return end - start;
     }
 
+    /**
+     * Метод расчитывает время вставки заданного количества элементов в середину LinkedList
+     *
+     * @param numberOfElements количество элементов
+     * @return время в нс
+     */
     private int getLinkedListTimeMiddle(int numberOfElements) {
         LinkedList<Integer> linkedList = new LinkedList<>();
         int start = LocalTime.now().getNano();
         for (int i = 0; i < numberOfElements; i++) {
-            linkedList.add(linkedList.size()/2 ,i);
+            linkedList.add(linkedList.size() / 2, i);
         }
         int end = LocalTime.now().getNano();
         return end - start;
@@ -196,9 +295,4 @@ public class HW8 {
         }
         System.out.println("hashMap" + studentMap.toString());
     }
-
-    /**
-     * Tasks 4
-     * Отрефакторить предыдущие домашки :)
-     */
 }
