@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- * Класс компьютер.
+ * Класс компьютера.
  *
  * @author Gnitko Andrei
  */

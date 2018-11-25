@@ -1,6 +1,7 @@
 package homework;
 
 import homework.hw1.HW1;
+import homework.hw10.HW10;
 import homework.hw2.HW2;
 import homework.hw3.HW3;
 import homework.hw4.HW4;
@@ -88,6 +89,11 @@ public class Runner {
                     }
                     case 9: {
                         AbstractHomework hw = new HW9();
+                        runTasks(hw);
+                        break;
+                    }
+                    case 10: {
+                        AbstractHomework hw = new HW10();
                         runTasks(hw);
                         break;
                     }
