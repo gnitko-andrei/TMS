@@ -8,15 +8,31 @@ import homework.InvalidTaskNumberException;
 
 import java.util.Arrays;
 
+/**
+ * Класс содержащий ДЗ №3.
+ *
+ * @author Gnitko Andrei
+ * @see AbstractRunnableHomework
+ */
 public class HW3 extends AbstractRunnableHomework {
+
+    /**
+     * Контруктор, задающий имя, номер и количество заданий в ДЗ.
+     *
+     * @throws InvalidHomeworkNumberException
+     */
     public HW3() throws InvalidHomeworkNumberException {
         setTasksAmount(12);
         initialize(3);
     }
 
+    /**
+     * @param number - номер задания
+     * @throws InvalidTaskNumberException исключение выбрасывается в случае несовпаденя номера задания с перечисленными в блоке switch
+     */
     @Override
-    public void chooseTask(int[] numbers, int i) throws InvalidTaskNumberException {
-        switch (numbers[i]) {
+    public void chooseTask(int number) throws InvalidTaskNumberException {
+        switch (number) {
             case 1: {
                 System.out.println("рефакторинг предыдущих заданий");
                 break;
@@ -68,7 +84,7 @@ public class HW3 extends AbstractRunnableHomework {
                 break;
             }
             default: {
-                throw new InvalidTaskNumberException(numbers[i] + " неправильный номер задания");
+                throw new InvalidTaskNumberException(number + " неправильный номер задания");
             }
         }
         System.out.println();
@@ -223,6 +239,12 @@ public class HW3 extends AbstractRunnableHomework {
         searchValue(arr, 10);
     }
 
+    /**
+     * Метод поиска элемента массива по значению и вывода его индекса.
+     *
+     * @param arr массив для поиска
+     * @param i   искомое значение
+     */
     private void searchValue(int[] arr, int i) {
         int n = Arrays.binarySearch(arr, i);
         if (n >= 0) {

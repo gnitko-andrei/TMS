@@ -6,6 +6,8 @@ import functions.ArrayFunctions;
  * Tasks 3
  * В качестве размера массива используйте значение,
  * введенное через IDEA (program arguments). Заполнить массив строкой “Hello World”.
+ *
+ * @author Gnitko Andrei
  */
 public class Task3 {
 

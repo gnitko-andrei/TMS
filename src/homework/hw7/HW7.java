@@ -1,30 +1,92 @@
 package homework.hw7;
 
+import homework.AbstractRunnableHomework;
+import homework.InvalidHomeworkNumberException;
+import homework.InvalidTaskNumberException;
+import homework.hw7.task4.School;
 import homework.hw7.task4.Student;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 
-public class HW7 {
-    public static void main(String[] args) throws IOException {
-        HW7 hw = new HW7();
-        String[] arr = {"1", "10", "8", "5"};
-        Student student = new Student(1, "Andrei", 21, arr);
-        System.out.println(student.getAverageMark());
-        student.addMark(3);
-        System.out.println(student.getAverageMark());
-
+/**
+ * Класс содержащий ДЗ №7.
+ *
+ * @author Gnitko Andrei
+ * @see AbstractRunnableHomework
+ */
+public class HW7 extends AbstractRunnableHomework {
+    public static void main(String[] args) {
+        Student student1 = new Student(1, "student1", 18, "4 8 9 4 5 5".split("%s"));
+        Student student2 = new Student(2, "student2", 12, "5 4 8 5 8 9 5".split("%s"));
+        Student student3 = new Student(3, "student3", 18, "6 8 9 8 10 5".split("%s"));
+        Student student4 = new Student(4, "student4", 20, "9 8 5 6 7 8".split("%s"));
+        Student student5 = new Student(5, "student5", 19, "5 7 9 4 10".split("%s"));
+        ArrayList<Student> students = new ArrayList<>();
+        students.add(student1);
+        students.add(student2);
+        students.add(student3);
+        students.add(student4);
+        students.add(student5);
+        School school = new School("School№1", students);
+        school.printAllStudents();
+        school.editStudent(2, "10 9 9 4 8".split("%s"));
+        school.removeStudent(3);
+        Student findingStudent = school.findStudentByName("student5");
+        Student oldestStudent = school.findOldestStudent();
+        Student cleverestStudent = school.findCleverestStudent();
     }
-    /**
-     * Tasks 1
-     * Добавить собственные исключения к домашке с транспортом.
-     * В качестве примера это может быть проверка на валидные значения (IllegalArgumentException).
-     */
 
     /**
-     * Tasks 2
-     * Добавить логирование. (заменить sout на logger).
+     * Контруктор, задающий имя, номер и количество заданий в ДЗ.
+     *
+     * @see InvalidHomeworkNumberException
      */
+    public HW7() throws InvalidHomeworkNumberException {
+        setTasksAmount(5);
+        initialize(7);
+    }
+
+    /**
+     * @param number - номер задания
+     * @throws InvalidTaskNumberException исключение выбрасывается в случае несовпаденя номера задания с перечисленными в блоке switch
+     */
+    @Override
+    public void chooseTask(int number) throws InvalidTaskNumberException {
+        switch (number) {
+            case 1: {
+                System.out.println("Добавление исключений в ДЗ5");
+                System.out.println("находятся в пакете src/homework/hw5/transport");
+                break;
+            }
+            case 2: {
+                System.out.println("Добавление логирования");
+                break;
+            }
+            case 3: {
+                try {
+                    this.task3();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
+            case 4: {
+                System.out.println("Создание классов School и Student");
+                System.out.println("находятся в пакете src/homework/hw7/task4");
+                break;
+            }
+            case 5: {
+                System.out.println("Добавление javadocs к домашкам.");
+                break;
+            }
+            default: {
+                throw new InvalidTaskNumberException(number + " неправильный номер задания");
+            }
+        }
+        System.out.println();
+    }
 
     /**
      * Tasks 3
@@ -49,19 +111,30 @@ public class HW7 {
         checkContent(fileContent, blackList);
     }
 
+    /**
+     * Метод для чтения текста из файла
+     * @param path путь к файлу
+     * @return текст в форме строки
+     * @throws IOException
+     */
     private String readText(String path) throws IOException {
-        FileInputStream fis = new FileInputStream(path);
-        InputStreamReader inputStreamReader = new InputStreamReader(fis);
-        BufferedReader br = new BufferedReader(inputStreamReader);
-        String line;
-        String content = "";
-        while ((line = br.readLine()) != null) {
-            content += line + " ";
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(path)))) {
+            String line;
+            StringBuilder content = new StringBuilder();
+            while ((line = br.readLine()) != null) {
+                content.append(line).append(" ");
+            }
+            System.out.println(content);
+            return content.toString();
         }
-        System.out.println(content);
-        return content;
     }
 
+    /**
+     * метод для чтения чёрного списка из файла, с преобразованием его в массив строк
+     * @param path путь файла с чёрным списком
+     * @return массив строк с элементами чёрного списка
+     * @throws IOException
+     */
     private String[] readBlackList(String path) throws IOException {
         String content = readText(path);
         String[] blackList = content.split("[\\s, \\n]");
@@ -69,14 +142,20 @@ public class HW7 {
         return blackList;
     }
 
+    /**
+     * Метод для проверки строки на содержание элементов массива строк,
+     * с выводом соответствующего сообщения о прохождении проверки.
+     * @param content строка для провери
+     * @param blackList массив элементов чёрного списка
+     */
     private void checkContent(String content, String[] blackList) {
         String[] sentences = content.split("[.!?]");
-        String message = "";
+        StringBuilder message = new StringBuilder();
         int count = 0;
         for (String censWord : blackList) {
             for (String sentence : sentences) {
                 if ((sentence.toLowerCase()).contains(censWord.toLowerCase())) {
-                    message += sentence;
+                    message.append(sentence);
                     count++;
                 }
             }
@@ -90,25 +169,4 @@ public class HW7 {
 
     }
 
-    /**
-     * Tasks 4
-     * Создать класс Student(id, имя, возраст, список оценок).
-     * В классе Student реализовать след. методы:
-     * - добавить оценку.
-     * - получить средний балл.
-     * Создать класс School(название, список студентов).
-     * В классе School реализовать след. методы:
-     * - добавить студента.
-     * - редактировать студента.
-     * - удалить студента.
-     * - вывод всех студентов.
-     * - поиск студента по имени.
-     * - поиск самого взрослого студента.
-     * - поиск самого умного студента.
-     */
-
-    /**
-     * Tasks 5
-     * Добавить javadocs к домашкам. В качестве примера смотрите в JDK.
-     */
 }

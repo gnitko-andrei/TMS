@@ -1,8 +1,18 @@
 package homework.hw5.human.clothes.outwear;
 
+/**
+ * Класс куртики.
+ *
+ * @author Gnitko Andrei
+ * @see Outwear
+ */
 public class Jacket implements Outwear {
+    /**
+     * Надета ли вещь
+     */
     private boolean isDressed;
 
+    @Override
     public void putOnJacket() {
         if (!this.isDressed) {
             this.isDressed = true;
@@ -12,6 +22,7 @@ public class Jacket implements Outwear {
         }
     }
 
+    @Override
     public void takeOffJacket() {
         if (this.isDressed) {
             this.isDressed = false;

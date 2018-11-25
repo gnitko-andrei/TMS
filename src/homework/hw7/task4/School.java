@@ -1,7 +1,7 @@
 package homework.hw7.task4;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
 
 public class School {
     private String name;
@@ -92,7 +92,7 @@ public class School {
         return index;
     }
 
-    private Student findStudentByName(String name) {
+    public Student findStudentByName(String name) {
         for (Student student : students) {
             if (student.getName().equals(name)) {
                 return student;
@@ -125,7 +125,7 @@ public class School {
     }
     public void printAllStudents() {
         for (Student student : students) {
-            student.toString();
+            System.out.println(student.toString());
         }
     }
 
@@ -150,9 +150,7 @@ public class School {
     }
 
     public void setStudents(Student[] students) {
-        for (Student student : students) {
-            this.students.add(student);
-        }
+        this.students.addAll(Arrays.asList(students));
     }
 
 }

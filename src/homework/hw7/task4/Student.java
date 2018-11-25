@@ -35,7 +35,7 @@ public class Student implements Comparable<Student>{
         marks.add(mark);
     }
 
-    public double getAverageMark() {
+    double getAverageMark() {
         int count = 0;
         int sum = 0;
         for (int mark : marks) {
@@ -61,19 +61,19 @@ public class Student implements Comparable<Student>{
         this.name = name;
     }
 
-    public int getAge() {
+    int getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    void setAge(int age) {
         this.age = age;
     }
 
-    public ArrayList<Integer> getMarks() {
+    private ArrayList<Integer> getMarks() {
         return marks;
     }
 
-    public void setMarks(String[] marks) {
+    void setMarks(String[] marks) {
         int[] marksInt = new int[marks.length];
         for (int i = 0; i < marksInt.length; i++) {
             marksInt[i] = Integer.parseInt(marks[i]);
@@ -83,13 +83,13 @@ public class Student implements Comparable<Student>{
         }
     }
 
-    public void setMarks(int[] marks) {
+    void setMarks(int[] marks) {
         for (int mark : marks) {
             this.marks.add(mark);
         }
     }
 
-    public void setMarks(ArrayList<Integer> marks) {
+    void setMarks(ArrayList<Integer> marks) {
         this.marks = marks;
     }
 

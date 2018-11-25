@@ -9,8 +9,17 @@ import homework.hw6.HW6;
 
 import java.util.Scanner;
 
+/**
+ * Класс для запуска ДЗ
+ *
+ * @author Gnitko Andrei
+ */
 public class Runner {
-
+    /**
+     * Количество заданий ДЗ
+     *
+     * @see HomeworkNames#getAmount()
+     */
     private int homeworksAmount = HomeworkNames.getAmount();
 
     public static void main(String[] args) throws InvalidHomeworkNumberException, InvalidTaskNumberException {
@@ -18,6 +27,16 @@ public class Runner {
         runner.runHW();
     }
 
+    /**
+     * Метод выводит приветственное сообщение, считывает с консоли номера ДЗ и запускает их выполнение.
+     * При вводе пустой строки выполнение не запускается.
+     *
+     * @throws InvalidHomeworkNumberException исключение выбрасывается в случае несовпаденя номера ДЗ с перечисленными в блоке switch
+     * @throws InvalidHomeworkNumberException
+     * @throws InvalidTaskNumberException
+     * @see Runner#printWelcomeMessage()
+     * @see Runner#readHWNumbers()
+     */
     private void runHW() throws InvalidHomeworkNumberException, InvalidTaskNumberException {
         printWelcomeMessage();
         int[] numbers = readHWNumbers();
@@ -60,16 +79,27 @@ public class Runner {
                 }
             }
         }
-
-
     }
 
+    /**
+     * Метод проверки ДЗ на реализацию интерфейса RunnableHomework и необходимость запуска, соответственно.
+     * Для объектов реализующих интерфейс RunnableHomework запускает исполнение заданий runTask.
+     * Для объектов не реализующих интерфейс RunnableHomework выводит приветственное сообщение.
+     *
+     * @param homework объект ДЗ
+     * @throws InvalidTaskNumberException
+     * @see AbstractHomework
+     * @see AbstractRunnableHomework
+     */
     private void runTasks(AbstractHomework homework) throws InvalidTaskNumberException {
         if (homework instanceof AbstractRunnableHomework) {
             ((AbstractRunnableHomework) homework).runTask();
         } else homework.printWelcomeMessage();
     }
 
+    /**
+     * Метод выводит приветственное сообщение.
+     */
     private void printWelcomeMessage() {
         int amount = HomeworkNames.getAmount();
         System.out.printf("Введите номер задания от 1 до %d (можно несколько в формате 1-%d или 1 2 3...)\n", amount, amount);
@@ -83,6 +113,12 @@ public class Runner {
         System.out.println("для завершения ввода напишите exit");
     }
 
+    /**
+     * Метод считывает с консоли номера ДЗ.
+     *
+     * @return массив считанных номеров
+     * @see Runner#findNumbersFromString(String)
+     */
     int[] readHWNumbers() {
         Scanner sc = new Scanner(System.in);
         StringBuilder numbersString = new StringBuilder();
@@ -96,6 +132,12 @@ public class Runner {
         return findNumbersFromString(numbersString.toString());
     }
 
+    /**
+     * Метод, преобразующий строку с номерами ДЗ в массив номеров, в случае пустой строки возвращает null.
+     *
+     * @param numbersString строка, содержащая номера заданий
+     * @return массив считанных номеров
+     */
     private int[] findNumbersFromString(String numbersString) {
         if (numbersString.isEmpty()) {
             return null;

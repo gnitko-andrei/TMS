@@ -5,16 +5,32 @@ import homework.AbstractRunnableHomework;
 import homework.InvalidHomeworkNumberException;
 import homework.InvalidTaskNumberException;
 
+/**
+ * Класс содержащий ДЗ №2.
+ *
+ * @author Gnitko Andrei
+ * @see AbstractRunnableHomework
+ */
 public class HW2 extends AbstractRunnableHomework {
 
+    /**
+     * Контруктор, задающий имя, номер и количество заданий в ДЗ.
+     *
+     * @throws InvalidHomeworkNumberException
+     */
     public HW2() throws InvalidHomeworkNumberException {
         setTasksAmount(6);
         initialize(2);
     }
 
+
+    /**
+     * @param number - номер задания
+     * @throws InvalidTaskNumberException исключение выбрасывается в случае несовпаденя номера задания с перечисленными в блоке switch
+     */
     @Override
-    public void chooseTask(int[] numbers, int i) throws InvalidTaskNumberException {
-        switch (numbers[i]) {
+    public void chooseTask(int number) throws InvalidTaskNumberException {
+        switch (number) {
             case 1: {
                 this.task1();
                 break;
@@ -40,7 +56,7 @@ public class HW2 extends AbstractRunnableHomework {
                 break;
             }
             default: {
-                throw new InvalidTaskNumberException(numbers[i] + " неправильный номер задания");
+                throw new InvalidTaskNumberException(number + " неправильный номер задания");
             }
         }
         System.out.println();

@@ -10,16 +10,31 @@ import java.io.*;
 import static functions.TextFormater.countWords;
 import static functions.TextFormater.isContainsPalindrome;
 
+/**
+ * Класс содержащий ДЗ №6.
+ *
+ * @author Gnitko Andrei
+ * @see AbstractRunnableHomework
+ */
 public class HW6 extends AbstractRunnableHomework {
 
+    /**
+     * Контруктор, задающий имя, номер и количество заданий в ДЗ
+     *
+     * @throws InvalidHomeworkNumberException
+     */
     public HW6() throws InvalidHomeworkNumberException {
         setTasksAmount(6);
         initialize(6);
     }
 
+    /**
+     * @param number - номер задания
+     * @throws InvalidTaskNumberException исключение выбрасывается в случае несовпаденя номера задания с перечисленными в блоке switch
+     */
     @Override
-    public void chooseTask(int[] numbers, int i) throws InvalidTaskNumberException {
-        switch (numbers[i]) {
+    public void chooseTask(int number) throws InvalidTaskNumberException {
+        switch (number) {
             case 1: {
                 this.task1();
                 break;
@@ -61,7 +76,7 @@ public class HW6 extends AbstractRunnableHomework {
                 break;
             }
             default: {
-                throw new InvalidTaskNumberException(numbers[i] + " неправильный номер задания");
+                throw new InvalidTaskNumberException(number + " неправильный номер задания");
             }
         }
         System.out.println();
@@ -81,6 +96,15 @@ public class HW6 extends AbstractRunnableHomework {
 
     }
 
+    /**
+     * Метод для обрезки из исходной строки подстроки, начиная с первого вхождения первого символо
+     * заканчивая последним вхождением второго символа
+     *
+     * @param s исходная строка
+     * @param a первый символ
+     * @param b второй символ
+     * @return
+     */
     private String cutSubstring(String s, char a, char b) {
         int indexOfA = s.indexOf(a);
         int indexOfB = s.lastIndexOf(b);
@@ -98,6 +122,12 @@ public class HW6 extends AbstractRunnableHomework {
 
     }
 
+    /**
+     * Метод для замены в исходной строке всех вхождений символа стоящего в позиции 3 на символ стоящий в позиции 0.
+     *
+     * @param s исходная строка
+     * @return строка с результатом замены
+     */
     private String changeAll(String s) {
         if (s.length() > 4) {
             String symbol3 = Character.toString(s.charAt(3));
@@ -113,6 +143,7 @@ public class HW6 extends AbstractRunnableHomework {
      * Tasks 3
      * В исходном файле находятся слова, каждое слово на новой строке.
      * После запуска программы должен создаться файл, который будет содержать в себе только палиндромы.
+     * @throws IOException
      */
     private void task3() throws IOException {
         String pathToRead = "src/homework/hw6/testFile1.1";
@@ -121,6 +152,13 @@ public class HW6 extends AbstractRunnableHomework {
         writeOnlyPalindromes(fileContent, pathToWrite);
     }
 
+    /**
+     * Метод для чтения содержимого файла в строку.
+     *
+     * @param path путь к файлу
+     * @return строка с содержимым файла
+     * @throws IOException
+     */
     private String readStringsFromFile(String path) throws IOException {
         System.out.println("Исходный файл " + path);
         try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(path)))) {
@@ -133,6 +171,13 @@ public class HW6 extends AbstractRunnableHomework {
         }
     }
 
+    /**
+     * Метод записывающий в файл только палиндромы из заданной строки.
+     *
+     * @param content заданная строка
+     * @param path    путь к файлу для записи
+     * @throws IOException
+     */
     private void writeOnlyPalindromes(String content, String path) throws IOException {
         try (FileWriter writer = new FileWriter(path)) {
             String[] words = content.split("\\s");
@@ -157,6 +202,7 @@ public class HW6 extends AbstractRunnableHomework {
      * Создаем вспомогательный класс TextFormatter, в котором два метода:
      * 1. Метод принимает строку и возвращает кол-во слов в строке.
      * 2. Метод принимает строку и проверяет есть ли в строке слово-палиндром. Если есть возвращает true, если нет false.
+     * @throws IOException
      */
 
     private void task4() throws IOException {
@@ -167,6 +213,13 @@ public class HW6 extends AbstractRunnableHomework {
 
     }
 
+    /**
+     * Метод записи в файл предложений от 3-х до 5-ти слов и предложений, содержащих палиндромы из заданной строки.
+     *
+     * @param content заданная строка
+     * @param path    путь к файлу для записи
+     * @throws IOException
+     */
     private void task4Writer(String content, String path) throws IOException {
         try (FileWriter writer = new FileWriter(path)) {
             String[] sentences = content.split("[!.?]");
@@ -182,6 +235,12 @@ public class HW6 extends AbstractRunnableHomework {
         System.out.println("Результат в файле " + path);
     }
 
+    /**
+     * Task 5*
+     * Создать программно папку, в нее сериализовать экземпляр класса User (id, name, password).
+     * Затем в другом методе десериализовать.
+     * @throws IOException
+     */
     private void task5() throws IOException {
         String folderPath = "src/homework/hw6/user";
         String filePath = "src/homework/hw6/user/user1";
@@ -191,6 +250,14 @@ public class HW6 extends AbstractRunnableHomework {
 
     }
 
+    /**
+     * Метод сериализующий заданный объект в новую папку.
+     *
+     * @param object     сериализуемый объект
+     * @param folderPath путь к новой папке
+     * @param filePath   путь к файлу для сериализации
+     * @throws IOException
+     */
     private void task56Serialise(Object object, String folderPath, String filePath) throws IOException {
         File folder = new File(folderPath);
         if (!folder.exists()) {
@@ -201,6 +268,11 @@ public class HW6 extends AbstractRunnableHomework {
         }
     }
 
+    /**
+     * Task 6*
+     * Продолжение 5. Поле password пометить transient.
+     * @throws IOException
+     */
     private void task6() throws IOException {
         String folderPath = "src/homework/hw6/user";
         String filePath = "src/homework/hw6/user/user2";

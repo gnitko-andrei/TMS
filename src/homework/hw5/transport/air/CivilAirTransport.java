@@ -1,18 +1,42 @@
 package homework.hw5.transport.air;
 
+/**
+ * Класс пассажирского воздушного транспорта.
+ *
+ * @author Gnitko Andrei
+ * @see AirTransport
+ */
 public class CivilAirTransport extends AirTransport {
+    /**
+     * Максимальное количество пассажиров.
+     */
     private int passengersMaxNumber;
+    /**
+     * Наличие бизнес класса (true/false)
+     */
     private boolean isBusinessClass;
 
+    /**
+     * Конструктор по умолчанию, задающий стандартные значения максимального количества пассажиров
+     * и наличия бизнес класса (true/false) воздушного пассажирского транспорта.
+     */
     public CivilAirTransport() {
         this(100, true);
     }
 
+    /**
+     * Конструктор, задающий значения
+     * и наличия бизнес класса (true/false) воздушного пассажирского транспорта.
+     *
+     * @param passengersMaxNumber максимальное количество пассажиров
+     * @param isBusinessClass     наличие бизнес класса (true/false)
+     */
     public CivilAirTransport(int passengersMaxNumber, boolean isBusinessClass) {
         setPassengersMaxNumber(passengersMaxNumber);
         setBusinessClass(isBusinessClass);
     }
 
+    @Override
     public void printDescription() {
         super.printDescription();
         System.out.println("Это гражданский воздушный транспорт");
@@ -24,6 +48,11 @@ public class CivilAirTransport extends AirTransport {
         }
     }
 
+    /**
+     * Метод, проверяющий возмоность посадки в самолёт заданного количества пассажиров и выводящий соответствующее сообщение.
+     *
+     * @param passengersNumber количество пассажиров
+     */
     public void printLoadMessage(int passengersNumber) {
         if (passengersNumber < 0) {
             throw new IllegalArgumentException("Число пассажиров не может быть отрицательным");
@@ -38,10 +67,20 @@ public class CivilAirTransport extends AirTransport {
 
     }
 
+    /**
+     * Геттер максимального количества пассажиров.
+     *
+     * @return максимальное количество пассажиров
+     */
     public int getPassengersMaxNumber() {
         return this.passengersMaxNumber;
     }
 
+    /**
+     * Сеттер максимального количества пассажиров.
+     *
+     * @param passengersMaxNumber максимальное количество пассажиров
+     */
     public void setPassengersMaxNumber(int passengersMaxNumber) {
         if (passengersMaxNumber <= 0) {
             throw new IllegalArgumentException("Максимальное исло пассажиров должно быть больше 0");
@@ -49,10 +88,20 @@ public class CivilAirTransport extends AirTransport {
         this.passengersMaxNumber = passengersMaxNumber;
     }
 
+    /**
+     * Геттер наличия бизнес класса (true/false)
+     *
+     * @return наличие бизнес класса (true/false)
+     */
     public boolean isBusinessClass() {
         return this.isBusinessClass;
     }
 
+    /**
+     * Сеттер наличия бизнес класса (true/false)
+     *
+     * @param businessClass наличие бизнес класса (true/false)
+     */
     public void setBusinessClass(boolean businessClass) {
         this.isBusinessClass = businessClass;
     }

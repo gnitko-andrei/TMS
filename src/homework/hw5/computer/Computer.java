@@ -3,16 +3,44 @@ package homework.hw5.computer;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * Класс компьютер.
+ *
+ * @author Gnitko Andrei
+ */
 public class Computer {
+    /**
+     * Процессор.
+     */
     private String processor;
+    /**
+     * Оперативка.
+     */
     private int ram;
+    /**
+     * Жесткий диск.
+     */
     private int rom;
+    /**
+     * Ресурс полных циклов работы (включений/выключений).
+     */
     private int resource;
+    /**
+     * Сгорел ли компьютер
+     */
     private boolean isBurned = false;
+    /**
+     * Включён ли компьютер
+     */
     private boolean isOn = false;
+
     private Scanner sc = new Scanner(System.in);
     private Random r = new Random();
 
+    /**
+     * Конструктор по умолчанию, задающий стандартные значения процессора, оперативки, жесткого диска и
+     * ресурса полных циклов работы (включений/выключений)
+     */
     public Computer() {
         this.processor = "Intel";
         this.ram = 16;
@@ -20,6 +48,15 @@ public class Computer {
         this.resource = 3000;
     }
 
+    /**
+     * Конструктор, задающий значения процессора, оперативки, жесткого диска и
+     * ресурса полных циклов работы (включений/выключений)
+     *
+     * @param processor процессор
+     * @param ram       оперативка
+     * @param rom       жесткий диск
+     * @param resource  ресурс полных циклов работы (включений/выключений)
+     */
     public Computer(String processor, int ram, int rom, int resource) {
         this.processor = processor;
         this.ram = ram;
@@ -27,6 +64,12 @@ public class Computer {
         this.resource = resource;
     }
 
+    /**
+     * Конструктор, задающий стандартные значения процессора, оперативки, жесткого диска и
+     * заданное значение ресурса полных циклов работы (включений/выключений)
+     *
+     * @param resource ресурс полных циклов работы (включений/выключений)
+     */
     Computer(int resource) {
         this.processor = "Intel";
         this.ram = 16;
@@ -34,10 +77,18 @@ public class Computer {
         this.resource = resource;
     }
 
+    /**
+     * Метод описание(вывод всех полей)
+     */
     void output() {
         System.out.printf("процессор %s, оперативка %d, жесткий диск %d, ресурс полных циклов работы (включений/выключений) %d\n", this.processor, this.ram, this.rom, this.resource);
     }
 
+    /**
+     * Метод включить, при включении может произойти сбой, при вывзове метода рандом загадывает число (0 либо 1),
+     * вы вводите число с клавиатуры, если угадали комп выключается, если нет сгорает.
+     * Если комп сгорел, при попытке включить нужно выдать сообщение что ему конец
+     */
     void on() {
         if (!this.isBurned) {
             if (!this.isOn) {
@@ -59,6 +110,10 @@ public class Computer {
 
     }
 
+    /**
+     * Метод выключить, при выключении может произойти сбой, при вывзове метода рандом загадывает число (0 либо 1),
+     * вы вводите число с клавиатуры, если угадали комп выключается, если нет сгорает.
+     */
     void off() {
         if (this.isOn) {
             System.out.println("Введите 1 или 0");

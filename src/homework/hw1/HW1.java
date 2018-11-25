@@ -4,16 +4,31 @@ import homework.AbstractRunnableHomework;
 import homework.InvalidHomeworkNumberException;
 import homework.InvalidTaskNumberException;
 
+/**
+ * Класс содержащий ДЗ №1.
+ *
+ * @author Gnitko Andrei
+ * @see AbstractRunnableHomework
+ */
 public class HW1 extends AbstractRunnableHomework {
 
+    /**
+     * Контруктор, задающий имя, номер и количество заданий в ДЗ.
+     *
+     * @throws InvalidHomeworkNumberException
+     */
     public HW1() throws InvalidHomeworkNumberException {
         setTasksAmount(14);
         initialize(1);
     }
 
+    /**
+     * @param number - номер задания
+     * @throws InvalidTaskNumberException исключение выбрасывается в случае несовпаденя номера задания с перечисленными в блоке switch
+     */
     @Override
-    public void chooseTask(int[] numbers, int i) throws InvalidTaskNumberException {
-        switch (numbers[i]) {
+    public void chooseTask(int number) throws InvalidTaskNumberException {
+        switch (number) {
             case 1: {
                 this.task1();
                 break;
@@ -70,7 +85,7 @@ public class HW1 extends AbstractRunnableHomework {
                 break;
             }
             default: {
-                throw new InvalidTaskNumberException(numbers[i] + " неправильный номер задания");
+                throw new InvalidTaskNumberException(number + " неправильный номер задания");
             }
         }
         System.out.println();
@@ -136,6 +151,13 @@ public class HW1 extends AbstractRunnableHomework {
         System.out.println(this.compareInt(oneB, twoB));
     }
 
+    /**
+     * Медтод для сравнения двух целых чисел по знчению.
+     *
+     * @param i1 первое целое число
+     * @param i2 второе целое число
+     * @return строка с соответствующим знаком >,< или =
+     */
     private String compareInt(int i1, int i2) {
         String result = "";
         int i = Integer.compare(i1, i2);
@@ -226,10 +248,6 @@ public class HW1 extends AbstractRunnableHomework {
     }
 
     /**
-     * Tasks 9
-     * Потренироваться с psvm, sout, soutv
-     */
-    /**
      * Tasks 10
      * Есть 2 boolean переменные b1 == true, b2 == false.
      * Чему будет равен результат выражений (изначально попробовать вычислить без написания кода)
@@ -280,16 +298,17 @@ public class HW1 extends AbstractRunnableHomework {
         System.out.println(b3);
     }
 
+
+    private static boolean B;
+    private static int I;
+    private static double D;
+    private static String S;
+
     /**
      * Tasks 12
      * Объявить переменные класса (boolean, int, double, String) без присвоения им какого-либо значения.
      * Проверить, какая информация в них хранится. Затем перенести переменные в метод main и проверить значения.
      */
-    static boolean B;
-    static int I;
-    static double D;
-    static String S;
-
     private void task12() {
         System.out.println(B);
         System.out.println(I);
