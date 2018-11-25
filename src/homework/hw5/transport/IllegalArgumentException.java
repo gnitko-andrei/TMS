@@ -9,7 +9,7 @@ public class IllegalArgumentException extends Exception {
     /**
      * @param message - сообщение об ошибке
      */
-    IllegalArgumentException(String message) {
+    public IllegalArgumentException(String message) {
         super(message);
     }
 }

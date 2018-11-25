@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<student id="1">
+    <name>Bob</name>
+    <age>22</age>
+    <marks>10</marks>
+    <marks>9</marks>
+    <marks>6</marks>
+    <marks>8</marks>
+    <marks>9</marks>
+</student>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<student id="1">
+    <name>Bob</name>
+    <age>22</age>
+    <marks>10</marks>
+    <marks>9</marks>
+    <marks>6</marks>
+    <marks>8</marks>
+    <marks>9</marks>
+</student>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<student id="1">
+    <name>Bob</name>
+    <age>22</age>
+    <marks>10</marks>
+    <marks>9</marks>
+    <marks>6</marks>
+    <marks>8</marks>
+    <marks>9</marks>
+</student>

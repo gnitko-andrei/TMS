@@ -1,24 +1,30 @@
-package homework.hw11;
+package homework.hw11.students;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.sun.xml.txw2.annotation.XmlNamespace;
+import homework.hw11.AgeSeializer;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
+import java.io.Serializable;
 import java.util.List;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement
-@JsonRootName("student")
-public class Student {
+public class Student implements Serializable {
+
+    @XmlAttribute
     private int id;
+
     @JsonProperty("first_name")
     private String name;
+
     @JsonSerialize(using = AgeSeializer.class)
     @JsonProperty("age_years")
     private int age;
+
     @JsonIgnore
     private List<Integer> marks;
 
@@ -32,7 +38,7 @@ public class Student {
         this.age = age;
         this.marks = marks;
     }
-    @XmlAttribute
+
     public int getId() {
         return id;
     }

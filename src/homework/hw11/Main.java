@@ -2,6 +2,7 @@ package homework.hw11;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import homework.hw11.students.Student;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
